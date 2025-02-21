@@ -8,7 +8,8 @@ This script scrapes structured documentation from any website, processes it for 
 ✅ **Uses JavaScript Rendering** – Extracts dynamically loaded content with Selenium.  
 ✅ **AI-Powered Processing** – Uses GPT-4o-mini to summarize and format content.  
 ✅ **Efficient Caching** – Saves URLs and page content to `tmp/` for reuse.  
-✅ **Outputs Well-Structured Documentation** – Clear section titles, clean formatting, and code snippets.
+✅ **Outputs Well-Structured Documentation** – Clear section titles, clean formatting, and code snippets.  
+✅ **Supports Custom Content Selectors** – Specify a CSS selector to precisely extract documentation content.
 
 ---
 
@@ -36,10 +37,11 @@ Replace `your-api-key` with your actual OpenAI API key.
 
 ## 🚀 Usage
 
-The script requires two parameters:
+The script requires two main parameters and an optional one:
 
 - `--base-url` → The website's root documentation URL.
-- `--filter-path` → The section of the documentation to scrape.
+- `--filter-path` → (Optional) The section of the documentation to scrape.
+- `--custom-selector` → (Optional) A CSS-style selector for extracting specific content.
 
 ### **Basic Usage**
 
@@ -62,6 +64,24 @@ python scraper.py --base-url https://platform.openai.com --filter-path /docs/api
 ```bash
 python scraper.py --base-url https://sdk.vercel.ai --filter-path /docs/
 ```
+
+### **Using a Custom CSS Selector**
+
+If the default extraction method does not work, you can specify a custom CSS selector.
+
+#### Example: Extracting Content from a Specific `<div>`
+
+```bash
+python scraper.py --base-url https://example.com/docs --custom-selector "div.main-doc-container"
+```
+
+#### Example: Multiple CSS Selectors
+
+```bash
+python scraper.py --base-url https://example.com/docs --custom-selector "article, section.content, div.doc-content"
+```
+
+This allows the scraper to precisely target the documentation content.
 
 ---
 

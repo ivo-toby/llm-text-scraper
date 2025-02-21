@@ -3,7 +3,6 @@ import hashlib
 import os
 import pickle
 import time
-from urllib.parse import urljoin
 
 import openai
 from bs4 import BeautifulSoup
@@ -27,13 +26,18 @@ parser.add_argument(
     required=False,
     help="Path filter to scrape specific sections (e.g., /docs/reference/)",
 )
+parser.add_argument(
+    "--custom-selector",
+    required=False,
+    help="Custom CSS selector to extract content (e.g., '.my-class, #main-content')",
+)
 args = parser.parse_args()
 
 # OpenAI API Key (Ensure this is set in your environment variables)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 BASE_URL = args.base_url.rstrip("/")  # Remove trailing slash if exists
-DOCS_ROOT = f"{BASE_URL}/docs"
+DOCS_ROOT = f"{BASE_URL}/"
 FILTER_PATH = args.filter_path.strip("/") if args.filter_path else ""
 OUTPUT_FILE = "llms-full.txt"
 TMP_DIR = "./tmp"
@@ -73,8 +77,11 @@ def fetch_page(url):
         print(f"🌐 Fetching {url}...")
         driver.get(url)
         time.sleep(3)  # Allow JavaScript to fully load
+
         soup = BeautifulSoup(driver.page_source, "html.parser")
-        content = extract_text(soup)
+        content = extract_text(
+            soup, custom_selector=args.custom_selector
+        )  # Pass argument
 
         if content:
             with open(cache_file, "w", encoding="utf-8") as f:
@@ -85,12 +92,45 @@ def fetch_page(url):
         return None
 
 
-def extract_text(soup):
-    """Extracts main documentation content."""
-    if soup:
-        content = soup.find("article")  # Adjust selector if necessary
+def extract_text(soup, custom_selector=None):
+    """Extracts main documentation content dynamically with optional user-defined selector."""
+    if not soup:
+        return ""
+
+    # If a custom selector is provided, use it first
+    if custom_selector:
+        custom_content = soup.select_one(custom_selector)
+        if custom_content:
+            extracted_text = custom_content.get_text(separator="\n").strip()
+            if len(extracted_text) > 50:  # Avoid capturing empty or useless data
+                return extracted_text
+
+    # Default selectors for common documentation layouts
+    possible_selectors = [
+        "article",  # Common in blogs and structured docs
+        "div.col-content",  # Contentful-style docs
+        "div.markdown-body",  # GitHub/GitBook-style docs
+        "section.main-content",  # Some dev docs use sections
+        "div.doc-content",  # Other documentation platforms
+        "main",  # Generic fallback
+    ]
+
+    for selector in possible_selectors:
+        content = soup.select_one(selector)
         if content:
-            return content.get_text(separator="\n").strip()
+            extracted_text = content.get_text(separator="\n").strip()
+            if len(extracted_text) > 50:
+                return extracted_text
+
+    # Last resort: Get the longest text-heavy div
+    divs = soup.find_all("div")
+    if divs:
+        largest_div = max(divs, key=lambda d: len(d.get_text()), default=None)
+        if largest_div:
+            extracted_text = largest_div.get_text(separator="\n").strip()
+            if len(extracted_text) > 50:
+                return extracted_text
+
     return ""
 
 
@@ -142,7 +182,7 @@ def process_with_llm(text):
 
 
 def get_all_urls():
-    """Crawls from /docs to gather all links before processing, using caching."""
+    """Crawls URL to gather all links before processing, using caching."""
     cache_file = os.path.join(TMP_DIR, "urls_cache.pkl")
 
     if os.path.exists(cache_file):
