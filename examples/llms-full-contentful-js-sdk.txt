@@ -1,0 +1,5832 @@
+# Documentation from https://contentful.github.io/contentful.js/contentful/11.5.0
+> Extracted content from 
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/#
+----------------------------------------
+
+# Contentful.js Documentation Summary
+
+**Overview:**
+Contentful.js is a JavaScript and TypeScript library for interacting with the Contentful Content Delivery API and Content Preview API. The library is documented using TypeDoc, with auto-generated pages for each version.
+
+## API Methods
+
+### Contentful Namespace
+
+- **createClient**: Initializes a new Contentful client.
+
+### ContentfulClientApi Methods
+
+- **createAssetKey**: Generates a key for an asset.
+- **getAsset(assetId: string)**: Retrieves a specific asset by its ID.
+- **getAssets(params?: object)**: Fetches a list of assets with optional parameters.
+- **getContentType(contentTypeId: string)**: Retrieves a specific content type by its ID.
+- **getContentTypes(params?: object)**: Fetches a list of content types with optional parameters.
+- **getEntries(params?: object)**: Retrieves multiple entries based on optional parameters.
+- **getEntry(entryId: string)**: Fetches a specific entry by its ID.
+- **getLocales()**: Retrieves available locales.
+- **getSpace()**: Fetches the current space details.
+- **getTag(tagId: string)**: Retrieves a specific tag by its ID.
+- **getTags(params?: object)**: Fetches a list of tags with optional parameters.
+- **parseEntries(entries: object)**: Parses entries into a usable format.
+- **sync(params?: object)**: Synchronizes content between the Contentful space and the local environment.
+
+## Example Code
+
+```javascript
+const contentful = require('contentful');
+
+const client = contentful.createClient({
+  space: 'your_space_id',
+  accessToken: 'your_access_token'
+});
+
+// Fetch an entry
+client.getEntry('entry_id')
+  .then(entry => console.log(entry))
+  .catch(err => console.error(err));
+```
+
+For detailed type definitions and descriptions, refer to the sidebar.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/#md:api-overview
+----------------------------------------
+
+# Contentful.js Documentation Summary
+
+## Overview
+Contentful.js is a JavaScript and TypeScript library for interacting with the Contentful Content Delivery API and Content Preview API. Documentation is auto-generated using TypeDoc.
+
+## API Methods
+
+### Contentful Namespace
+- **createClient**: Initializes a new client for accessing Contentful APIs.
+
+### ContentfulClientApi Methods
+- **createAssetKey**: Generates a key for an asset.
+- **getAsset(assetId)**: Retrieves a specific asset by its ID.
+- **getAssets(query)**: Fetches a list of assets, optionally filtered by a query.
+- **getContentType(contentTypeId)**: Retrieves a specific content type by its ID.
+- **getContentTypes(query)**: Fetches a list of content types, optionally filtered by a query.
+- **getEntries(query)**: Retrieves a list of entries, optionally filtered by a query.
+- **getEntry(entryId)**: Retrieves a specific entry by its ID.
+- **getLocales()**: Fetches available locales.
+- **getSpace()**: Retrieves details about the current space.
+- **getTag(tagId)**: Retrieves a specific tag by its ID.
+- **getTags(query)**: Fetches a list of tags, optionally filtered by a query.
+- **parseEntries(entries)**: Parses entries for easier handling.
+- **sync(query)**: Synchronizes content with the specified query.
+
+## Example Code
+```javascript
+const contentful = require('contentful');
+
+const client = contentful.createClient({
+  space: 'your_space_id',
+  accessToken: 'your_access_token'
+});
+
+client.getEntries()
+  .then(entries => console.log(entries))
+  .catch(err => console.error(err));
+```
+
+For detailed type definitions and descriptions, refer to the sidebar documentation.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/#md:introduction
+----------------------------------------
+
+# Contentful.js Overview
+
+Contentful.js is a JavaScript and TypeScript library for interacting with the Contentful Content Delivery API and Content Preview API. The library is documented using TypeDoc, with auto-generated pages for each version.
+
+## API Methods
+
+### Contentful Namespace
+
+- **createClient(options: Object)**: Initializes a new Contentful client.
+
+### ContentfulClientApi Methods
+
+- **createAssetKey()**: Generates a key for an asset.
+- **getAsset(assetId: string)**: Retrieves a specific asset by its ID.
+- **getAssets(options?: Object)**: Fetches a list of assets with optional parameters.
+- **getContentType(contentTypeId: string)**: Retrieves a specific content type by its ID.
+- **getContentTypes(options?: Object)**: Fetches a list of content types.
+- **getEntries(options?: Object)**: Retrieves a list of entries with optional parameters.
+- **getEntry(entryId: string)**: Fetches a specific entry by its ID.
+- **getLocales()**: Retrieves available locales.
+- **getSpace()**: Fetches the current space information.
+- **getTag(tagId: string)**: Retrieves a specific tag by its ID.
+- **getTags(options?: Object)**: Fetches a list of tags.
+- **parseEntries(entries: Array)**: Parses and processes entries.
+- **sync(options?: Object)**: Synchronizes content between Contentful and the application.
+
+For detailed type definitions and descriptions, refer to the sidebar documentation.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/index.html
+----------------------------------------
+
+# Contentful.js Documentation Summary
+
+**Overview:**
+Contentful.js is a JavaScript and TypeScript library for interacting with the Contentful Content Delivery API and Content Preview API.
+
+**API Methods:**
+
+1. **createClient(options: Object): ContentfulClientApi**
+   - Initializes a new Contentful client.
+
+2. **ContentfulClientApi Methods:**
+   - `createAssetKey()`
+   - `getAsset(assetId: string): Promise<Asset>`
+   - `getAssets(options?: Object): Promise<Array<Asset>>`
+   - `getContentType(contentTypeId: string): Promise<ContentType>`
+   - `getContentTypes(options?: Object): Promise<Array<ContentType>>`
+   - `getEntries(options?: Object): Promise<Array<Entry>>`
+   - `getEntry(entryId: string): Promise<Entry>`
+   - `getLocales(): Promise<Array<Locale>>`
+   - `getSpace(): Promise<Space>`
+   - `getTag(tagId: string): Promise<Tag>`
+   - `getTags(options?: Object): Promise<Array<Tag>>`
+   - `parseEntries(entries: Array<Object>): Array<Entry>`
+   - `sync(options?: Object): Promise<SyncResponse>`
+
+**Documentation:**
+- The library is documented using TypeDoc, with auto-generated pages published with each version.
+- For detailed type definitions and descriptions, refer to the sidebar.
+
+This summary captures key methods and their parameters for efficient reference while reducing unnecessary text.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/modules.html
+----------------------------------------
+
+# Contentful.js Documentation Summary
+
+## Key Components
+
+### Asset
+- **Details**: Contains metadata about the asset.
+- **Fields**: Defines the structure of asset data.
+- **File**: Represents the file associated with the asset.
+- **Collection**: A group of assets.
+- **Link**: References to other assets.
+- **Mime Type**: Specifies the file type.
+- **Sys**: System metadata for the asset.
+
+### Client
+- **createClient(params)**: Initializes a Contentful client.
+  - **Params**: Configuration options for the client.
+- **getGlobalOptions()**: Retrieves global options for the client.
+- **logLevel**: Sets the logging level for client operations.
+
+### Content Type
+- **ContentType**: Defines the structure of content entries.
+- **Fields**: Specifies fields within the content type.
+- **Field Validation**: Rules for validating field data.
+- **Sys**: System metadata for the content type.
+
+### Entry
+- **Entry Fields**: Defines fields within an entry.
+- **Field Types**: Types of data that can be stored in entry fields.
+- **Collection**: A group of entries.
+- **Link**: References to other entries.
+
+### Locale
+- **Locale Code**: Identifies the language/region of content.
+- **Collection**: A group of locales.
+- **Sys**: System metadata for locales.
+
+### Sync
+- **Sync Collection**: Represents a collection of synchronized entities.
+- **Sync Options**: Configuration options for synchronization.
+- **Sync Query**: Queries for syncing content.
+
+## API Methods
+
+### Client Methods
+- `createClient(params)`: Creates a Contentful client.
+- `getGlobalOptions()`: Retrieves global options.
+
+### Entry Methods
+- `Entry.fields`: Access entry fields.
+- `Entry.link`: Create links to other entries.
+
+### Asset Methods
+- `Asset.fields`: Access asset fields.
+- `Asset.file`: Access asset file details.
+
+### Sync Methods
+- `syncQuery()`: Queries for syncing.
+- `syncResponse()`: Handles sync responses.
+
+## Example Code
+```javascript
+const contentful = require('contentful');
+
+const client = contentful.createClient({
+  space: 'your_space_id',
+  accessToken: 'your_access_token'
+});
+
+client.getEntries()
+  .then(entries => console.log(entries))
+  .catch(err => console.error(err));
+```
+
+This summary captures the essential components and methods of the Contentful.js library, providing a clear reference for developers.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/functions/createClient.html
+----------------------------------------
+
+### API Method: `createClient`
+
+**Function**: `createClient(params: CreateClientParams): ContentfulClientApi<undefined>`
+
+**Description**: Creates a client instance for interacting with Contentful.
+
+**Parameters**:
+- `params`: Object containing client initialization parameters.
+  - `accessToken`: Your Contentful access token.
+  - `space`: Your Contentful space ID.
+
+**Returns**: An instance of `ContentfulClientApi<undefined>`.
+
+**Example**:
+```javascript
+const contentful = require('contentful');
+const client = contentful.createClient({
+  accessToken: 'myAccessToken',
+  space: 'mySpaceId'
+});
+```
+
+**Defined in**: `contentful.ts:146`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/functions/createGlobalOptions.html
+----------------------------------------
+
+### API Method: createGlobalOptions
+
+**Function:** `createGlobalOptions(globalSettings: GlobalOptionsParams): GetGlobalOptions`
+
+**Parameters:**
+- `globalSettings` (Required): An object of type `GlobalOptionsParams` containing global library settings.
+
+**Returns:**
+- `GetGlobalOptions`: A method that returns client settings.
+
+**Defined in:** `create-global-options.ts:23`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/Asset.html
+----------------------------------------
+
+### Contentful.js - Asset Interface
+
+**Interface**: `Asset<Modifiers, Locales>`
+
+**Description**: Represents binary files in a Contentful space.
+
+#### Properties:
+- **fields**: 
+  - Type: `ChainModifiers extends Modifiers ? AssetFields | { description?: { [LocaleName in string]?: string }; file?: { [LocaleName in string]?: AssetFile }; title?: { [LocaleName in string]?: string }; } : "WITH_ALL_LOCALES" extends Modifiers ? { description?: { [LocaleName in string]?: string }; file?: { [LocaleName in string]?: AssetFile }; title?: { [LocaleName in string]?: string }; } : AssetFields`
+  
+- **metadata**: 
+  - Type: `Metadata`
+
+- **sys**: 
+  - Type: `AssetSys`
+
+#### Type Parameters:
+- **Modifiers**: Extends `ChainModifiers`. Automatically set when using client chain modifiers.
+- **Locales**: Extends `LocaleCode`. Defines locale keys for asset field values if using `allLocales` modifier.
+
+#### Defined In:
+- `types/asset.ts`
+
+This interface is crucial for managing assets within a Contentful space, providing structured access to asset fields, metadata, and system information.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/AssetDetails.html
+----------------------------------------
+
+### AssetDetails Interface
+
+**Definition**: `AssetDetails` interface represents the details of an asset.
+
+#### Properties:
+- **image** (optional)
+  - **Type**: Object
+    - **height**: `number` - Height of the image.
+    - **width**: `number` - Width of the image.
+- **size**
+  - **Type**: `number` - Size of the asset.
+
+#### Location:
+Defined in `types/asset.ts`:
+- Line 10: `size`
+- Line 12: `image`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/AssetFields.html
+----------------------------------------
+
+### AssetFields Interface
+
+The `AssetFields` interface defines the structure for asset properties in Contentful.
+
+#### Properties:
+- **description** (optional): `string` - A textual description of the asset.
+- **file** (optional): `AssetFile` - The file associated with the asset.
+- **title** (optional): `string` - The title of the asset.
+
+#### Definition Location:
+- Defined in `types/asset.ts` at lines 31-34.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/AssetFile.html
+----------------------------------------
+
+### AssetFile Interface
+
+The `AssetFile` interface represents a file asset in Contentful.
+
+#### Properties:
+- **contentType**: `string` - The MIME type of the asset.
+- **details**: `AssetDetails` - Metadata about the asset.
+- **fileName**: `string` - The name of the file.
+- **url**: `string` - The URL to access the asset.
+
+#### Definition Location:
+- Defined in `types/asset.ts` at lines 21-25.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/BaseSys.html
+----------------------------------------
+
+### BaseSys Interface
+
+**Definition**: Represents common system-managed metadata.
+
+#### Properties:
+- **id**: `string` - Unique identifier for the system entity. (Defined in `types/sys.ts:10`)
+- **type**: `string` - Type of the system entity. (Defined in `types/sys.ts:9`)
+
+#### Hierarchy:
+- BaseSys
+  - ContentTypeSys
+  - LocaleSys
+  - SpaceSys
+  - EntitySys
+
+**Location**: Defined in `types/sys.ts:8`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/Concept.html
+----------------------------------------
+
+### Concept Interface
+
+**Interface:** `Concept<Locales>`
+
+#### Properties:
+- **altLabels?**: `{ [locale in string]: string[] }`
+- **broader?**: `UnresolvedLink<"TaxonomyConcept">[]`
+- **changeNote?**: `null | { [locale in string]: string }`
+- **definition?**: `null | { [locale in string]: string }`
+- **editorialNote?**: `null | { [locale in string]: string }`
+- **example?**: `null | { [locale in string]: string }`
+- **hiddenLabels?**: `{ [locale in string]: string[] }`
+- **historyNote?**: `null | { [locale in string]: string }`
+- **notations?**: `string[]`
+- **note?**: `null | { [locale in string]: string }`
+- **prefLabel**: `{ [locale in string]: string }`
+- **related?**: `UnresolvedLink<"TaxonomyConcept">[]`
+- **scopeNote?**: `null | { [locale in string]: string }`
+- **sys**: `ConceptSys`
+- **uri?**: `string`
+
+#### Type Parameters:
+- **Locales**: extends `LocaleCode`
+
+### Summary:
+The `Concept` interface defines a structure for taxonomy concepts, including properties for labels, notes, definitions, and relationships with other concepts. All properties are optional except for `prefLabel` and `sys`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ConceptScheme.html
+----------------------------------------
+
+### ConceptScheme Interface
+
+**Definition**: 
+`ConceptScheme<Locales>` is an interface that represents a taxonomy concept scheme.
+
+#### Properties:
+- **concepts**: `UnresolvedLink<"TaxonomyConcept">[]` - Array of unresolved links to taxonomy concepts.
+- **definition**: `null | { [locale in string]: string }` (optional) - A mapping of locale strings to their definitions.
+- **prefLabel**: `{ [locale in string]: string }` - A mapping of locale strings to preferred labels.
+- **sys**: `ConceptSchemeSys` - System metadata for the concept scheme.
+- **topConcepts**: `UnresolvedLink<"TaxonomyConcept">[]` - Array of unresolved links to top-level taxonomy concepts.
+- **totalConcepts**: `number` - The total number of concepts in the scheme.
+- **uri**: `string` (optional) - A URI associated with the concept scheme.
+
+#### Type Parameters:
+- **Locales**: Extends `LocaleCode`.
+
+### Example Usage:
+```javascript
+const conceptScheme: ConceptScheme<Locales> = {
+    concepts: [],
+    definition: {
+        en: "A definition in English",
+        fr: "Une définition en français"
+    },
+    prefLabel: {
+        en: "Preferred Label in English",
+        fr: "Étiquette préférée en français"
+    },
+    sys: {/* system metadata */},
+    topConcepts: [],
+    totalConcepts: 0,
+    uri: "http://example.com/concept-scheme"
+};
+```
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentType.html
+----------------------------------------
+
+### ContentType Interface
+
+**Definition**: Represents a content type in Contentful.
+
+#### Properties:
+- **description**: `string` - A brief description of the content type.  
+  *Defined in `types/content-type.ts:121`*
+
+- **displayField**: `string` - The field used for display purposes.  
+  *Defined in `types/content-type.ts:122`*
+
+- **fields**: `ContentTypeField[]` - An array of fields associated with the content type.  
+  *Defined in `types/content-type.ts:123`*
+
+- **name**: `string` - The name of the content type.  
+  *Defined in `types/content-type.ts:120`*
+
+- **sys**: `ContentTypeSys` - System metadata for the content type.  
+  *Defined in `types/content-type.ts:119`*
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentTypeAllowedResources.html
+----------------------------------------
+
+### ContentTypeAllowedResources Interface
+
+**Definition**: 
+The `ContentTypeAllowedResources` interface is defined in `types/content-type.ts`.
+
+**Properties**:
+- **contentTypes**: `string[]`  
+  An array of content type identifiers.  
+  *Defined in `types/content-type.ts:42`*
+
+- **source**: `string`  
+  The source of the content type.  
+  *Defined in `types/content-type.ts:41`*
+
+- **type**: `string`  
+  The type of resource.  
+  *Defined in `types/content-type.ts:40`* 
+
+This interface encapsulates the structure for allowed resources in a content type, specifying the types, source, and identifiers associated with it.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentTypeField.html
+----------------------------------------
+
+### ContentTypeField Interface
+
+**Definition**: Represents a content type field in Contentful.
+
+#### Properties:
+
+- **allowedResources** (optional): `ContentTypeAllowedResources[]`
+- **disabled**: `boolean` - Indicates if the field is disabled.
+- **id**: `string` - Unique identifier for the field.
+- **items** (optional): `FieldItem` - Specifies items in the field.
+- **linkType** (optional): `string` - Type of link if applicable.
+- **localized**: `boolean` - Indicates if the field is localized.
+- **name**: `string` - Name of the field.
+- **omitted**: `boolean` - Indicates if the field is omitted.
+- **required**: `boolean` - Indicates if the field is required.
+- **type**: `ContentTypeFieldType` - Type of the field.
+- **validations**: `ContentTypeFieldValidation[]` - Validations applied to the field.
+
+#### Usage Example:
+```javascript
+const contentTypeField = {
+    id: "fieldId",
+    name: "Field Name",
+    type: "Text",
+    localized: false,
+    required: true,
+    disabled: false,
+    omitted: false,
+    validations: [],
+};
+```
+
+This interface is defined in `types/content-type.ts`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentTypeFieldValidation.html
+----------------------------------------
+
+### ContentTypeFieldValidation Interface
+
+**Description**: Defines a validation rule for a content type field.
+
+#### Properties:
+- **enabledNodeTypes**: Optional array of allowed node types.
+  - Values: `"document"`, `"paragraph"`, `"heading-1"`, `"heading-2"`, `"heading-3"`, `"heading-4"`, `"heading-5"`, `"heading-6"`, `"ordered-list"`, `"unordered-list"`, `"list-item"`, `"hr"`, `"blockquote"`, `"embedded-entry-block"`, `"embedded-asset-block"`, `"embedded-resource-block"`, `"table"`, `"table-row"`, `"table-cell"`, `"table-header-cell"`, `"asset-hyperlink"`, `"embedded-entry-inline"`, `"embedded-resource-inline"`, `"entry-hyperlink"`, `"hyperlink"`, `"resource-hyperlink"`.
+
+- **in**: Optional array of strings.
+
+- **linkContentType**: Optional array of strings.
+
+- **linkMimetypeGroup**: Optional array of strings.
+
+- **message**: Optional string or null.
+
+- **nodes**: Optional object containing:
+  - **asset-hyperlink**: Array of objects with `size` and `message`.
+  - **embedded-asset-block**: Array of objects with `size` and `message`.
+  - **embedded-entry-block**: Array of objects with `size`, `linkContentType`, and `message`.
+  - **embedded-entry-inline**: Array of objects with `size`, `linkContentType`, and `message`.
+  - **embedded-resource-block**: Object containing:
+    - **allowedResources**: Array of `ContentTypeAllowedResources`.
+    - **validations**: Array of objects with `size` and `message`.
+  - **entry-hyperlink**: Array of objects with `size`, `linkContentType`, and `message`.
+
+- **regexp**: Optional object with:
+  - **pattern**: string.
+
+- **size**: Optional object with:
+  - **max**: number.
+  - **min**: number.
+
+- **unique**: Optional boolean.
+
+**Defined in**: `types/content-type.ts` at various lines.
+
+### Example Code:
+```typescript
+const validationRule: ContentTypeFieldValidation = {
+    enabledNodeTypes: ["paragraph", "heading-1"],
+    message: "Invalid content type",
+    size: {
+        min: 1,
+        max: 5
+    },
+    regexp: {
+        pattern: "^[a-zA-Z0-9]+$"
+    },
+    unique: true
+};
+```
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentTypeSys.html
+----------------------------------------
+
+### ContentTypeSys Interface
+
+**Description**: Represents system-managed metadata for a content type in Contentful.
+
+#### Properties:
+- **createdAt**: `string` - Timestamp of creation in ISO 8601 format.
+- **environment**: `{ sys: EnvironmentLink }` - Reference to the environment.
+- **id**: `string` - Unique identifier for the content type.
+- **revision**: `number` - Revision number of the content type.
+- **space**: `{ sys: SpaceLink }` - Reference to the space.
+- **type**: `string` - Type of the content.
+- **updatedAt**: `string` - Timestamp of the last update in ISO 8601 format.
+
+#### Inheritance:
+- Inherits properties `id` and `type` from `BaseSys`.
+
+#### Defined In:
+- `types/content-type.ts` (lines 12-17)
+- `types/sys.ts` (lines 9-10)
+
+### Example Code:
+```javascript
+const contentType = {
+    createdAt: "2023-10-01T12:00:00Z",
+    environment: { sys: { id: "env_id", type: "Environment" } },
+    id: "content_type_id",
+    revision: 1,
+    space: { sys: { id: "space_id", type: "Space" } },
+    type: "ContentType",
+    updatedAt: "2023-10-02T12:00:00Z"
+};
+```
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html
+----------------------------------------
+
+### Contentful Client API Overview
+
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, such as Entries, Assets, and more.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Enables fetching with all locales if not already enabled.
+- **withoutLinkResolution**: Disables link resolution in entries if not already disabled.
+- **withoutUnresolvableLinks**: Removes unresolvable links from entries if not already disabled.
+
+#### Methods
+
+1. **createAssetKey**
+   - **Parameters**: 
+     - `expiresAt: number`
+   - **Returns**: `Promise<AssetKey>`
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: AssetQueries<Modifiers>`
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets**
+   - **Parameters**: 
+     - `query?: AssetsQueries<AssetFields, Modifiers>`
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts**
+   - **Parameters**: 
+     - `query?: ConceptsQueries`
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<ContentType>`
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries**
+   - **Parameters**: 
+     - `query?: EntriesQueries<EntrySkeleton, Modifiers>`
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: EntryQueries<Modifiers>`
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales**
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace**
+    - **Returns**: `Promise<Space>`
+    - **Example**:
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag**
+    - **Parameters**: 
+      - `id: string`
+    - **Returns**: `Promise<Tag>`
+    - **Example**:
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags**
+    - **Parameters**: 
+      - `query?: TagQueries`
+    - **Returns**: `Promise<TagCollection>`
+    - **Example**:
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries**
+    - **Parameters**: 
+      - `data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>`
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Example**:
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items[0].fields.foo);
+      ```
+
+14. **sync**
+    - **Parameters**: 
+      - `query: SyncQuery`
+      - `syncOptions?: SyncOptions`
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Summary
+The `ContentfulClientApi` provides a comprehensive set of methods for interacting with Contentful's content delivery API, allowing for efficient retrieval and management of assets, entries, and other entities.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#createAssetKey
+----------------------------------------
+
+# Contentful.js Documentation Summary
+
+## Interface: ContentfulClientApi<Modifiers>
+The Contentful Delivery API Client provides methods to access various entities such as Entries and Assets.
+
+### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional modifier for fetching all locales.
+- **withoutLinkResolution**: Conditional modifier to avoid link resolution in entries.
+- **withoutUnresolvableLinks**: Conditional modifier to remove unresolvable links from entries.
+
+### Methods
+1. **createAssetKey(expiresAt: number)**: 
+   - Returns: `Promise<AssetKey>`
+   - Creates an asset key for signing asset URLs.
+
+   **Example**:
+   ```javascript
+   const assetKey = await client.createAssetKey(<UNIX timestamp>);
+   console.log(assetKey);
+   ```
+
+2. **getAsset<Locales>(id: string, query?: AssetQueries<Modifiers>)**: 
+   - Returns: `Promise<Asset<Modifiers, Locales>>`
+   - Fetches an asset by ID.
+
+   **Example**:
+   ```javascript
+   const asset = await client.getAsset('<asset_id>');
+   console.log(asset);
+   ```
+
+3. **getAssets<Locales>(query?: AssetsQueries<AssetFields, Modifiers>)**: 
+   - Returns: `Promise<AssetCollection<Modifiers, Locales>>`
+   - Fetches a collection of assets.
+
+   **Example**:
+   ```javascript
+   const response = await client.getAssets();
+   console.log(response.items);
+   ```
+
+4. **getConcept(id: string)**: 
+   - Returns: `Promise<Concept<"en-US">>`
+   - Fetches a concept by ID.
+
+   **Example**:
+   ```javascript
+   const concept = await client.getConcept('<concept_id>');
+   console.log(concept);
+   ```
+
+5. **getConcepts(query?: ConceptsQueries)**: 
+   - Returns: `Promise<ConceptCollection<"en-US">>`
+   - Fetches a collection of concepts.
+
+   **Example**:
+   ```javascript
+   const response = await client.getConcepts();
+   console.log(response.items);
+   ```
+
+6. **getContentType(id: string)**: 
+   - Returns: `Promise<ContentType>`
+   - Fetches a content type by ID.
+
+   **Example**:
+   ```javascript
+   const contentType = await client.getContentType('<content_type_id>');
+   console.log(contentType);
+   ```
+
+7. **getEntries<EntrySkeleton, Locales>(query?: EntriesQueries<EntrySkeleton, Modifiers>)**: 
+   - Returns: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - Fetches a collection of entries.
+
+   **Example**:
+   ```javascript
+   const response = await client.getEntries();
+   console.log(response.items);
+   ```
+
+8. **getEntry<EntrySkeleton, Locales>(id: string, query?: EntryQueries<Modifiers>)**: 
+   - Returns: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - Fetches an entry by ID.
+
+   **Example**:
+   ```javascript
+   const entry = await client.getEntry('<entry_id>');
+   console.log(entry);
+   ```
+
+9. **getLocales()**: 
+   - Returns: `Promise<LocaleCollection>`
+   - Fetches a collection of locales.
+
+   **Example**:
+   ```javascript
+   const response = await client.getLocales();
+   console.log(response.items);
+   ```
+
+10. **getSpace()**: 
+    - Returns: `Promise<Space>`
+    - Fetches the current space.
+
+    **Example**:
+    ```javascript
+    const space = await client.getSpace();
+    console.log(space);
+    ```
+
+11. **getTag(id: string)**: 
+    - Returns: `Promise<Tag>`
+    - Fetches a tag by ID.
+
+    **Example**:
+    ```javascript
+    const tag = await client.getTag('<tag_id>');
+    console.log(tag);
+    ```
+
+12. **getTags(query?: TagQueries)**: 
+    - Returns: `Promise<TagCollection>`
+    - Fetches a collection of tags.
+
+    **Example**:
+    ```javascript
+    const response = await client.getTags();
+    console.log(response.items);
+    ```
+
+13. **parseEntries<EntrySkeleton, Locales>(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>)**: 
+    - Returns: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - Parses raw JSON data into a collection of entries.
+
+    **Example**:
+    ```javascript
+    const parsedData = client.parseEntries(data);
+    console.log(parsedData.items[0].fields.foo);
+    ```
+
+14. **sync<EntrySkeleton, Modifiers, Locales>(query: SyncQuery, syncOptions?: SyncOptions)**: 
+    - Returns: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - Synchronizes content, fetching either all or new content since the last sync.
+
+    **Example**:
+    ```javascript
+    const response = await client.sync({ initial: true });
+    console.log({ entries: response.entries, assets: response.assets, nextSyncToken: response.nextSyncToken });
+    ```
+
+### Notes
+- The API supports various query parameters for filtering results.
+- The client can be configured with modifiers to customize behavior.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getAsset
+----------------------------------------
+
+### Contentful Client API Overview
+
+**Interface:** `ContentfulClientApi<Modifiers>`
+
+The Contentful Delivery API Client provides methods to access various entities in Contentful, such as Entries, Assets, and more.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Enables fetching with all locales if not already enabled.
+- **withoutLinkResolution**: Disables link resolution in entries if not already disabled.
+- **withoutUnresolvableLinks**: Removes unresolvable links from entries if not already disabled.
+
+#### Methods
+1. **createAssetKey(expiresAt: number)**: 
+   - Returns a `Promise<AssetKey>`.
+   - Creates an asset key for signing asset URLs.
+   - **Example:**
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset(id: string, query?: AssetQueries<Modifiers>)**: 
+   - Returns a `Promise<Asset<Modifiers, Locales>>`.
+   - Fetches a specific asset.
+   - **Example:**
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets(query?: AssetsQueries<AssetFields, Modifiers>)**: 
+   - Returns a `Promise<AssetCollection<Modifiers, Locales>>`.
+   - Fetches a collection of assets.
+   - **Example:**
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string)**: 
+   - Returns a `Promise<Concept<"en-US">>`.
+   - Fetches a specific concept.
+   - **Example:**
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries)**: 
+   - Returns a `Promise<ConceptCollection<"en-US">>`.
+   - Fetches a collection of concepts.
+   - **Example:**
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string)**: 
+   - Returns a `Promise<ContentType>`.
+   - Fetches a specific content type.
+   - **Example:**
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries(query?: EntriesQueries<EntrySkeleton, Modifiers>)**: 
+   - Returns a `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`.
+   - Fetches a collection of entries.
+   - **Example:**
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry(id: string, query?: EntryQueries<Modifiers>)**: 
+   - Returns a `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`.
+   - Fetches a specific entry.
+   - **Example:**
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales()**: 
+   - Returns a `Promise<LocaleCollection>`.
+   - Fetches a collection of locales.
+   - **Example:**
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace()**: 
+    - Returns a `Promise<Space>`.
+    - Fetches the current space.
+    - **Example:**
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag(id: string)**: 
+    - Returns a `Promise<Tag>`.
+    - Fetches a specific tag.
+    - **Example:**
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags(query?: TagQueries)**: 
+    - Returns a `Promise<TagCollection>`.
+    - Fetches a collection of tags.
+    - **Example:**
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>)**: 
+    - Parses raw JSON data into a collection of entries.
+    - **Example:**
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items);
+      ```
+
+14. **sync(query: SyncQuery, syncOptions?: SyncOptions)**: 
+    - Returns a `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`.
+    - Synchronizes content since the last sync.
+    - **Example:**
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Usage Example
+```javascript
+import * as contentful from 'contentful';
+
+const client = contentful.createClient({
+  space: '<space_id>',
+  accessToken: '<content_delivery_api_key>'
+});
+
+// Fetching an asset
+const asset = await client.getAsset('<asset_id>');
+console.log(asset);
+```
+
+This optimized documentation provides a concise overview of the Contentful Client API, including key properties and methods, along with example usage for clarity.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getAssets
+----------------------------------------
+
+### Contentful.js - ContentfulClientApi Interface
+
+**Overview:**
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, such as Entries and Assets.
+
+#### Properties:
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional modifier for fetching all locales.
+- **withoutLinkResolution**: Conditional modifier to avoid resolving links.
+- **withoutUnresolvableLinks**: Conditional modifier to remove unresolvable links.
+
+#### Methods:
+1. **createAssetKey(expiresAt: number): Promise<AssetKey>**
+   - Creates an asset key for signing asset URLs.
+   - **Example:**
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset<Locales>(id: string, query?: AssetQueries<Modifiers>): Promise<Asset<Modifiers, Locales>>**
+   - Fetches a single asset by ID.
+   - **Example:**
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets<Locales>(query?: AssetsQueries<AssetFields, Modifiers>): Promise<AssetCollection<Modifiers, Locales>>**
+   - Fetches a collection of assets.
+   - **Example:**
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string): Promise<Concept<"en-US">>**
+   - Fetches a concept by ID.
+   - **Example:**
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries): Promise<ConceptCollection<"en-US">>**
+   - Fetches a collection of concepts.
+   - **Example:**
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string): Promise<ContentType>**
+   - Fetches a content type by ID.
+   - **Example:**
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries<EntrySkeleton, Locales>(query?: EntriesQueries<EntrySkeleton, Modifiers>): Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>**
+   - Fetches a collection of entries.
+   - **Example:**
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry<EntrySkeleton, Locales>(id: string, query?: EntryQueries<Modifiers>): Promise<Entry<EntrySkeleton, Modifiers, Locales>>**
+   - Fetches a single entry by ID.
+   - **Example:**
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales(): Promise<LocaleCollection>**
+   - Fetches a collection of locales.
+   - **Example:**
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace(): Promise<Space>**
+    - Fetches the current space.
+    - **Example:**
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag(id: string): Promise<Tag>**
+    - Fetches a tag by ID.
+    - **Example:**
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags(query?: TagQueries): Promise<TagCollection>**
+    - Fetches a collection of tags.
+    - **Example:**
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries<EntrySkeleton, Locales>(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>): EntryCollection<EntrySkeleton, Modifiers, Locales>**
+    - Parses raw JSON data into a collection of entries.
+    - **Example:**
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items[0].fields.foo); // Resolved links
+      ```
+
+14. **sync<EntrySkeleton, Modifiers, Locales>(query: SyncQuery, syncOptions?: SyncOptions): Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>**
+    - Synchronizes content, fetching new content since the last sync.
+    - **Example:**
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Note:
+- The Sync API does not support link resolution; however, initial sync can resolve links client-side.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getContentType
+----------------------------------------
+
+### Contentful.js API Overview
+
+**ContentfulClientApi Interface**
+- **Purpose**: Provides access to Contentful entities (Entries, Assets, etc.).
+
+#### Properties
+- **version**: `string` - Current Contentful.js version.
+- **withAllLocales**: Enables fetching assets and entries with all locales.
+- **withoutLinkResolution**: Disables link resolution in entries.
+- **withoutUnresolvableLinks**: Removes unresolvable links from entries.
+
+#### Methods
+1. **createAssetKey(expiresAt: number)**: 
+   - **Returns**: `Promise<AssetKey>`
+   - **Description**: Creates an asset key for signing asset URLs.
+
+   **Example**:
+   ```javascript
+   const assetKey = await client.createAssetKey(<UNIX timestamp>);
+   console.log(assetKey);
+   ```
+
+2. **getAsset(id: string, query?: AssetQueries)**: 
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Description**: Fetches an asset.
+
+   **Example**:
+   ```javascript
+   const asset = await client.getAsset('<asset_id>');
+   console.log(asset);
+   ```
+
+3. **getAssets(query?: AssetsQueries)**: 
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Description**: Fetches a collection of assets.
+
+   **Example**:
+   ```javascript
+   const response = await client.getAssets();
+   console.log(response.items);
+   ```
+
+4. **getConcept(id: string)**: 
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Description**: Fetches a concept.
+
+   **Example**:
+   ```javascript
+   const concept = await client.getConcept('<concept_id>');
+   console.log(concept);
+   ```
+
+5. **getConcepts(query?: ConceptsQueries)**: 
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Description**: Fetches a collection of concepts.
+
+   **Example**:
+   ```javascript
+   const response = await client.getConcepts();
+   console.log(response.items);
+   ```
+
+6. **getContentType(id: string)**: 
+   - **Returns**: `Promise<ContentType>`
+   - **Description**: Fetches a content type.
+
+   **Example**:
+   ```javascript
+   const contentType = await client.getContentType('<content_type_id>');
+   console.log(contentType);
+   ```
+
+7. **getEntries(query?: EntriesQueries)**: 
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches a collection of entries.
+
+   **Example**:
+   ```javascript
+   const response = await client.getEntries();
+   console.log(response.items);
+   ```
+
+8. **getEntry(id: string, query?: EntryQueries)**: 
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches an entry.
+
+   **Example**:
+   ```javascript
+   const entry = await client.getEntry('<entry_id>');
+   console.log(entry);
+   ```
+
+9. **getLocales()**: 
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Description**: Fetches a collection of locales.
+
+   **Example**:
+   ```javascript
+   const response = await client.getLocales();
+   console.log(response.items);
+   ```
+
+10. **getSpace()**: 
+    - **Returns**: `Promise<Space>`
+    - **Description**: Fetches the current space.
+
+    **Example**:
+    ```javascript
+    const space = await client.getSpace();
+    console.log(space);
+    ```
+
+11. **getTag(id: string)**: 
+    - **Returns**: `Promise<Tag>`
+    - **Description**: Fetches a tag.
+
+    **Example**:
+    ```javascript
+    const tag = await client.getTag('<tag_id>');
+    console.log(tag);
+    ```
+
+12. **getTags(query?: TagQueries)**: 
+    - **Returns**: `Promise<TagCollection>`
+    - **Description**: Fetches a collection of tags.
+
+    **Example**:
+    ```javascript
+    const response = await client.getTags();
+    console.log(response.items);
+    ```
+
+13. **parseEntries(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>)**: 
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Description**: Parses raw JSON data into a collection of entries.
+
+    **Example**:
+    ```javascript
+    const parsedData = client.parseEntries(data);
+    console.log(parsedData.items[0].fields.foo); // Resolved fields
+    ```
+
+14. **sync(query: SyncQuery, syncOptions?: SyncOptions)**: 
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Description**: Synchronizes content or new content since the last sync.
+
+    **Example**:
+    ```javascript
+    const response = await client.sync({ initial: true });
+    console.log({ entries: response.entries, assets: response.assets, nextSyncToken: response.nextSyncToken });
+    ```
+
+### Summary
+This API allows for comprehensive management of Contentful resources, including assets, entries, concepts, and tags, with methods for fetching, creating, and parsing data.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getContentTypes
+----------------------------------------
+
+### Contentful.js - ContentfulClientApi Interface
+
+**Overview:**
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, such as Entries, Assets, and more.
+
+#### Properties:
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Enables fetching of assets and entries with all locales.
+- **withoutLinkResolution**: Prevents link resolution in entries.
+- **withoutUnresolvableLinks**: Removes unresolvable links from entries.
+
+#### Methods:
+1. **createAssetKey(expiresAt: number)**: 
+   - **Returns**: `Promise<AssetKey>`
+   - **Description**: Creates an asset key for signing asset URLs.
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset(id: string, query?: AssetQueries<Modifiers>)**: 
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Description**: Fetches an asset by ID.
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets(query?: AssetsQueries<AssetFields, Modifiers>)**: 
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Description**: Fetches a collection of assets.
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string)**: 
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Description**: Fetches a concept by ID.
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries)**: 
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Description**: Fetches a collection of concepts.
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string)**: 
+   - **Returns**: `Promise<ContentType>`
+   - **Description**: Fetches a content type by ID.
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries(query?: EntriesQueries<EntrySkeleton, Modifiers>)**: 
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches a collection of entries.
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry(id: string, query?: EntryQueries<Modifiers>)**: 
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches an entry by ID.
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales()**: 
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Description**: Fetches a collection of locales.
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace()**: 
+    - **Returns**: `Promise<Space>`
+    - **Description**: Fetches the current space.
+    - **Example**:
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag(id: string)**: 
+    - **Returns**: `Promise<Tag>`
+    - **Description**: Fetches a tag by ID.
+    - **Example**:
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags(query?: TagQueries)**: 
+    - **Returns**: `Promise<TagCollection>`
+    - **Description**: Fetches a collection of tags.
+    - **Example**:
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>)**: 
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Description**: Parses raw JSON data into a collection of entries.
+    - **Example**:
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items[0].fields.foo);
+      ```
+
+14. **sync(query: SyncQuery, syncOptions?: SyncOptions)**: 
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Description**: Synchronizes content since the last sync.
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Notes:
+- The `Modifiers` type parameter is used to configure the client with chain modifiers.
+- All methods return promises, allowing for asynchronous handling of API calls.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getEntries
+----------------------------------------
+
+### ContentfulClientApi Overview
+
+The `ContentfulClientApi` interface provides methods for accessing various entities in Contentful, such as Entries and Assets.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional client for fetching all locales.
+- **withoutLinkResolution**: Conditional client that does not resolve links in entries.
+- **withoutUnresolvableLinks**: Conditional client that removes unresolvable links from entries.
+
+#### Methods
+
+1. **createAssetKey**
+   - **Parameters**: 
+     - `expiresAt: number`
+   - **Returns**: `Promise<AssetKey>`
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: AssetQueries<Modifiers>`
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets**
+   - **Parameters**: 
+     - `query?: AssetsQueries<AssetFields, Modifiers>`
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts**
+   - **Parameters**: 
+     - `query?: ConceptsQueries`
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<ContentType>`
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries**
+   - **Parameters**: 
+     - `query?: EntriesQueries<EntrySkeleton, Modifiers>`
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: EntryQueries<Modifiers>`
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales**
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace**
+    - **Returns**: `Promise<Space>`
+    - **Example**:
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag**
+    - **Parameters**: 
+      - `id: string`
+    - **Returns**: `Promise<Tag>`
+    - **Example**:
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags**
+    - **Parameters**: 
+      - `query?: TagQueries`
+    - **Returns**: `Promise<TagCollection>`
+    - **Example**:
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries**
+    - **Parameters**: 
+      - `data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>`
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Example**:
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items[0].fields.foo);
+      ```
+
+14. **sync**
+    - **Parameters**: 
+      - `query: SyncQuery`
+      - `syncOptions?: SyncOptions`
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Notes
+- The Sync API does not support link resolution for delta sync.
+- Ensure to replace `<space_id>`, `<content_delivery_api_key>`, and other placeholders with actual values when using the examples.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getEntry
+----------------------------------------
+
+### Contentful Client API Overview
+
+**Interface:** `ContentfulClientApi<Modifiers>`  
+A client for accessing Contentful's Delivery API, allowing interaction with entities like Entries and Assets.
+
+#### Properties:
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional modifier for fetching all locales.
+- **withoutLinkResolution**: Conditional modifier to avoid resolving links in entries.
+- **withoutUnresolvableLinks**: Conditional modifier to remove unresolvable links from entries.
+
+#### Methods:
+1. **createAssetKey(expiresAt: number)**:  
+   - **Returns**: `Promise<AssetKey>`  
+   - **Description**: Creates an asset key for signing asset URLs.
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset<Locales>(id: string, query?: AssetQueries<Modifiers>)**:  
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`  
+   - **Description**: Fetches a specific asset.
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets<Locales>(query?: AssetsQueries<AssetFields, Modifiers>)**:  
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`  
+   - **Description**: Fetches a collection of assets.
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string)**:  
+   - **Returns**: `Promise<Concept<"en-US">>`  
+   - **Description**: Fetches a specific concept.
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries)**:  
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`  
+   - **Description**: Fetches a collection of concepts.
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string)**:  
+   - **Returns**: `Promise<ContentType>`  
+   - **Description**: Fetches a specific content type.
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries<EntrySkeleton, Locales>(query?: EntriesQueries<EntrySkeleton, Modifiers>)**:  
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`  
+   - **Description**: Fetches a collection of entries.
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry<EntrySkeleton, Locales>(id: string, query?: EntryQueries<Modifiers>)**:  
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`  
+   - **Description**: Fetches a specific entry.
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales()**:  
+   - **Returns**: `Promise<LocaleCollection>`  
+   - **Description**: Fetches a collection of locales.
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **sync<EntrySkeleton, Modifiers, Locales>(query: SyncQuery, syncOptions?: SyncOptions)**:  
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`  
+    - **Description**: Synchronizes content, fetching either all or new content since the last sync.
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets, nextSyncToken: response.nextSyncToken });
+      ```
+
+### Notes:
+- The API supports various modifiers for flexible data retrieval.
+- Example code snippets demonstrate usage for each method.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getLocales
+----------------------------------------
+
+### Contentful.js API Overview
+
+**ContentfulClientApi Interface**
+- Provides access to Contentful entities (Entries, Assets, etc.).
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Enables fetching with all locales.
+- **withoutLinkResolution**: Disables link resolution in entries.
+- **withoutUnresolvableLinks**: Removes unresolvable links from entries.
+
+#### Methods
+1. **createAssetKey(expiresAt: number)**: 
+   - Returns: `Promise<AssetKey>`
+   - Creates an asset key for signing asset URLs.
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset(id: string, query?: AssetQueries)**: 
+   - Returns: `Promise<Asset<Modifiers, Locales>>`
+   - Fetches a specific asset.
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets(query?: AssetsQueries)**: 
+   - Returns: `Promise<AssetCollection<Modifiers, Locales>>`
+   - Fetches a collection of assets.
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string)**: 
+   - Returns: `Promise<Concept<"en-US">>`
+   - Fetches a specific concept.
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries)**: 
+   - Returns: `Promise<ConceptCollection<"en-US">>`
+   - Fetches a collection of concepts.
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string)**: 
+   - Returns: `Promise<ContentType>`
+   - Fetches a specific content type.
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries(query?: EntriesQueries)**: 
+   - Returns: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - Fetches a collection of entries.
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry(id: string, query?: EntryQueries)**: 
+   - Returns: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - Fetches a specific entry.
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales()**: 
+   - Returns: `Promise<LocaleCollection>`
+   - Fetches a collection of locales.
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **sync(query: SyncQuery, syncOptions?: SyncOptions)**: 
+    - Returns: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - Synchronizes content.
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Summary
+The `ContentfulClientApi` interface provides methods to interact with Contentful's Delivery API, allowing for the retrieval and management of various content types, assets, and synchronization of content. Each method returns a promise, facilitating asynchronous operations.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getSpace
+----------------------------------------
+
+### Contentful Client API Overview
+
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, such as Entries, Assets, and more.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional modifier to fetch all locales.
+- **withoutLinkResolution**: Conditional modifier to avoid link resolution in entries.
+- **withoutUnresolvableLinks**: Conditional modifier to remove unresolvable links from entries.
+
+#### Methods
+
+1. **createAssetKey**
+   - **Parameters**: 
+     - `expiresAt: number`
+   - **Returns**: `Promise<AssetKey>`
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: AssetQueries<Modifiers>`
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets**
+   - **Parameters**: 
+     - `query?: AssetsQueries<AssetFields, Modifiers>`
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts**
+   - **Parameters**: 
+     - `query?: ConceptsQueries`
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<ContentType>`
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries**
+   - **Parameters**: 
+     - `query?: EntriesQueries<EntrySkeleton, Modifiers>`
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: EntryQueries<Modifiers>`
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales**
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace**
+    - **Returns**: `Promise<Space>`
+    - **Example**:
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag**
+    - **Parameters**: 
+      - `id: string`
+    - **Returns**: `Promise<Tag>`
+    - **Example**:
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags**
+    - **Parameters**: 
+      - `query?: TagQueries`
+    - **Returns**: `Promise<TagCollection>`
+    - **Example**:
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries**
+    - **Parameters**: 
+      - `data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>`
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Example**:
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items[0].fields.foo);
+      ```
+
+14. **sync**
+    - **Parameters**: 
+      - `query: SyncQuery`
+      - `syncOptions?: SyncOptions`
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets, nextSyncToken: response.nextSyncToken });
+      ```
+
+### Summary
+The `ContentfulClientApi` interface provides a comprehensive set of methods for interacting with Contentful's Delivery API, allowing for the retrieval and management of various content types and assets.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getTag
+----------------------------------------
+
+### Contentful Client API Overview
+
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, such as Entries and Assets.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Enables fetching of assets and entries with all locales.
+- **withoutLinkResolution**: Prevents resolution of links in entries.
+- **withoutUnresolvableLinks**: Removes unresolvable links from entries.
+
+#### Methods
+
+1. **createAssetKey**
+   - **Parameters**: 
+     - `expiresAt: number`
+   - **Returns**: `Promise<AssetKey>`
+   - **Description**: Creates an asset key for signing asset URLs.
+
+   ```javascript
+   const assetKey = await client.createAssetKey(<UNIX timestamp>);
+   console.log(assetKey);
+   ```
+
+2. **getAsset**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: AssetQueries<Modifiers>`
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Description**: Fetches an asset by ID.
+
+   ```javascript
+   const asset = await client.getAsset('<asset_id>');
+   console.log(asset);
+   ```
+
+3. **getAssets**
+   - **Parameters**: 
+     - `query?: AssetsQueries<AssetFields, Modifiers>`
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Description**: Fetches a collection of assets.
+
+   ```javascript
+   const response = await client.getAssets();
+   console.log(response.items);
+   ```
+
+4. **getConcept**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Description**: Fetches a concept by ID.
+
+   ```javascript
+   const concept = await client.getConcept('<concept_id>');
+   console.log(concept);
+   ```
+
+5. **getConcepts**
+   - **Parameters**: 
+     - `query?: ConceptsQueries`
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Description**: Fetches a collection of concepts.
+
+   ```javascript
+   const response = await client.getConcepts();
+   console.log(response.items);
+   ```
+
+6. **getContentType**
+   - **Parameters**: 
+     - `id: string`
+   - **Returns**: `Promise<ContentType>`
+   - **Description**: Fetches a content type by ID.
+
+   ```javascript
+   const contentType = await client.getContentType('<content_type_id>');
+   console.log(contentType);
+   ```
+
+7. **getEntries**
+   - **Parameters**: 
+     - `query?: EntriesQueries<EntrySkeleton, Modifiers>`
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches a collection of entries.
+
+   ```javascript
+   const response = await client.getEntries();
+   console.log(response.items);
+   ```
+
+8. **getEntry**
+   - **Parameters**: 
+     - `id: string`
+     - `query?: EntryQueries<Modifiers>`
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches an entry by ID.
+
+   ```javascript
+   const entry = await client.getEntry('<entry_id>');
+   console.log(entry);
+   ```
+
+9. **getLocales**
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Description**: Fetches a collection of locales.
+
+   ```javascript
+   const response = await client.getLocales();
+   console.log(response.items);
+   ```
+
+10. **getSpace**
+    - **Returns**: `Promise<Space>`
+    - **Description**: Fetches the current space.
+
+    ```javascript
+    const space = await client.getSpace();
+    console.log(space);
+    ```
+
+11. **getTag**
+    - **Parameters**: 
+      - `id: string`
+    - **Returns**: `Promise<Tag>`
+    - **Description**: Fetches a tag by ID.
+
+    ```javascript
+    const tag = await client.getTag('<tag_id>');
+    console.log(tag);
+    ```
+
+12. **getTags**
+    - **Parameters**: 
+      - `query?: TagQueries`
+    - **Returns**: `Promise<TagCollection>`
+    - **Description**: Fetches a collection of tags.
+
+    ```javascript
+    const response = await client.getTags();
+    console.log(response.items);
+    ```
+
+13. **parseEntries**
+    - **Parameters**: 
+      - `data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>`
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Description**: Parses raw JSON data into a collection of entries.
+
+    ```javascript
+    const parsedData = client.parseEntries(data);
+    console.log(parsedData.items[0].fields.foo); // foo
+    ```
+
+14. **sync**
+    - **Parameters**: 
+      - `query: SyncQuery`
+      - `syncOptions?: SyncOptions`
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Description**: Synchronizes content or new content since the last sync.
+
+    ```javascript
+    const response = await client.sync({ initial: true });
+    console.log({ entries: response.entries, assets: response.assets, nextSyncToken: response.nextSyncToken });
+    ```
+
+### Summary
+The `ContentfulClientApi` provides a comprehensive set of methods to interact with Contentful's Delivery API, enabling the retrieval and management of assets, entries, concepts, and more. Each method is designed to facilitate specific tasks, ensuring efficient access to the content stored in Contentful.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#getTags
+----------------------------------------
+
+### Contentful.js Documentation Summary
+
+**Interface: ContentfulClientApi<Modifiers>**
+- A client for accessing Contentful's Delivery API, enabling interaction with entities like Entries and Assets.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional modifier for fetching assets and entries with all locales.
+- **withoutLinkResolution**: Conditional modifier to avoid resolving links in entries.
+- **withoutUnresolvableLinks**: Conditional modifier to remove unresolvable links from entries.
+
+#### Methods
+1. **createAssetKey(expiresAt: number)**: 
+   - **Returns**: `Promise<AssetKey>`
+   - **Description**: Creates an asset key for signing asset URLs.
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset(id: string, query?: AssetQueries<Modifiers>)**:
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`
+   - **Description**: Fetches a specific asset.
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets(query?: AssetsQueries<AssetFields, Modifiers>)**:
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Description**: Fetches a collection of assets.
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string)**:
+   - **Returns**: `Promise<Concept<"en-US">>`
+   - **Description**: Fetches a specific concept.
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries)**:
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`
+   - **Description**: Fetches a collection of concepts.
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string)**:
+   - **Returns**: `Promise<ContentType>`
+   - **Description**: Fetches a specific content type.
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries(query?: EntriesQueries<EntrySkeleton, Modifiers>)**:
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches a collection of entries.
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry(id: string, query?: EntryQueries<Modifiers>)**:
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Description**: Fetches a specific entry.
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales()**:
+   - **Returns**: `Promise<LocaleCollection>`
+   - **Description**: Fetches a collection of locales.
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace()**:
+    - **Returns**: `Promise<Space>`
+    - **Description**: Fetches the current space.
+    - **Example**:
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag(id: string)**:
+    - **Returns**: `Promise<Tag>`
+    - **Description**: Fetches a specific tag.
+    - **Example**:
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags(query?: TagQueries)**:
+    - **Returns**: `Promise<TagCollection>`
+    - **Description**: Fetches a collection of tags.
+    - **Example**:
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>)**:
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Description**: Parses raw JSON data into a collection of entries.
+    - **Example**:
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items);
+      ```
+
+14. **sync(query: SyncQuery, syncOptions?: SyncOptions)**:
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Description**: Synchronizes content, fetching new content since the last sync.
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Note:
+- Ensure to replace `<space_id>`, `<content_delivery_api_key>`, `<asset_id>`, `<concept_id>`, `<content_type_id>`, `<entry_id>`, and `<tag_id>` with actual values when using the examples.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#parseEntries
+----------------------------------------
+
+### Contentful.js Documentation Summary
+
+#### ContentfulClientApi Interface
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, including Entries, Assets, and more.
+
+**Properties:**
+- `version: string`: Current version of Contentful.js.
+- `withAllLocales`: Enables fetching of assets and entries with all locales.
+- `withoutLinkResolution`: Disables link resolution in entries.
+- `withoutUnresolvableLinks`: Removes unresolvable links from entries.
+
+**Methods:**
+1. **createAssetKey**
+   - **Parameters:** `expiresAt: number`
+   - **Returns:** `Promise<AssetKey>`
+   - **Example:**
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset**
+   - **Parameters:** 
+     - `id: string`
+     - `query?: AssetQueries<Modifiers>`
+   - **Returns:** `Promise<Asset<Modifiers, Locales>>`
+   - **Example:**
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets**
+   - **Parameters:** `query?: AssetsQueries<AssetFields, Modifiers>`
+   - **Returns:** `Promise<AssetCollection<Modifiers, Locales>>`
+   - **Example:**
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept**
+   - **Parameters:** `id: string`
+   - **Returns:** `Promise<Concept<"en-US">>`
+   - **Example:**
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts**
+   - **Parameters:** `query?: ConceptsQueries`
+   - **Returns:** `Promise<ConceptCollection<"en-US">>`
+   - **Example:**
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType**
+   - **Parameters:** `id: string`
+   - **Returns:** `Promise<ContentType>`
+   - **Example:**
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries**
+   - **Parameters:** `query?: EntriesQueries<EntrySkeleton, Modifiers>`
+   - **Returns:** `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`
+   - **Example:**
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry**
+   - **Parameters:** 
+     - `id: string`
+     - `query?: EntryQueries<Modifiers>`
+   - **Returns:** `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`
+   - **Example:**
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales**
+   - **Returns:** `Promise<LocaleCollection>`
+   - **Example:**
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace**
+    - **Returns:** `Promise<Space>`
+    - **Example:**
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag**
+    - **Parameters:** `id: string`
+    - **Returns:** `Promise<Tag>`
+    - **Example:**
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags**
+    - **Parameters:** `query?: TagQueries`
+    - **Returns:** `Promise<TagCollection>`
+    - **Example:**
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries**
+    - **Parameters:** `data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>`
+    - **Returns:** `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+    - **Example:**
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items[0].fields.foo);
+      ```
+
+14. **sync**
+    - **Parameters:** 
+      - `query: SyncQuery`
+      - `syncOptions?: SyncOptions`
+    - **Returns:** `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`
+    - **Example:**
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets, nextSyncToken: response.nextSyncToken });
+      ```
+
+This summary provides a concise overview of the Contentful.js API, including key properties and methods with example usage.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulClientApi.html#sync
+----------------------------------------
+
+### Contentful.js API Overview
+
+**ContentfulClientApi Interface**  
+The `ContentfulClientApi` interface provides methods to access various entities in Contentful, such as Entries and Assets.
+
+#### Properties
+- **version**: `string` - Current version of Contentful.js.
+- **withAllLocales**: Conditional modifier for fetching all locales.
+- **withoutLinkResolution**: Conditional modifier to avoid link resolution in entries.
+- **withoutUnresolvableLinks**: Conditional modifier to exclude unresolvable links from entries.
+
+#### Methods
+1. **createAssetKey(expiresAt: number)**  
+   - **Returns**: `Promise<AssetKey>`  
+   - **Description**: Creates an asset key for signing asset URLs.
+   - **Example**:
+     ```javascript
+     const assetKey = await client.createAssetKey(<UNIX timestamp>);
+     console.log(assetKey);
+     ```
+
+2. **getAsset(id: string, query?: AssetQueries<Modifiers>)**  
+   - **Returns**: `Promise<Asset<Modifiers, Locales>>`  
+   - **Description**: Fetches a specific asset.
+   - **Example**:
+     ```javascript
+     const asset = await client.getAsset('<asset_id>');
+     console.log(asset);
+     ```
+
+3. **getAssets(query?: AssetsQueries<AssetFields, Modifiers>)**  
+   - **Returns**: `Promise<AssetCollection<Modifiers, Locales>>`  
+   - **Description**: Fetches a collection of assets.
+   - **Example**:
+     ```javascript
+     const response = await client.getAssets();
+     console.log(response.items);
+     ```
+
+4. **getConcept(id: string)**  
+   - **Returns**: `Promise<Concept<"en-US">>`  
+   - **Description**: Fetches a specific concept.
+   - **Example**:
+     ```javascript
+     const concept = await client.getConcept('<concept_id>');
+     console.log(concept);
+     ```
+
+5. **getConcepts(query?: ConceptsQueries)**  
+   - **Returns**: `Promise<ConceptCollection<"en-US">>`  
+   - **Description**: Fetches a collection of concepts.
+   - **Example**:
+     ```javascript
+     const response = await client.getConcepts();
+     console.log(response.items);
+     ```
+
+6. **getContentType(id: string)**  
+   - **Returns**: `Promise<ContentType>`  
+   - **Description**: Fetches a specific content type.
+   - **Example**:
+     ```javascript
+     const contentType = await client.getContentType('<content_type_id>');
+     console.log(contentType);
+     ```
+
+7. **getEntries(query?: EntriesQueries<EntrySkeleton, Modifiers>)**  
+   - **Returns**: `Promise<EntryCollection<EntrySkeleton, Modifiers, Locales>>`  
+   - **Description**: Fetches a collection of entries.
+   - **Example**:
+     ```javascript
+     const response = await client.getEntries();
+     console.log(response.items);
+     ```
+
+8. **getEntry(id: string, query?: EntryQueries<Modifiers>)**  
+   - **Returns**: `Promise<Entry<EntrySkeleton, Modifiers, Locales>>`  
+   - **Description**: Fetches a specific entry.
+   - **Example**:
+     ```javascript
+     const entry = await client.getEntry('<entry_id>');
+     console.log(entry);
+     ```
+
+9. **getLocales()**  
+   - **Returns**: `Promise<LocaleCollection>`  
+   - **Description**: Fetches a collection of locales.
+   - **Example**:
+     ```javascript
+     const response = await client.getLocales();
+     console.log(response.items);
+     ```
+
+10. **getSpace()**  
+    - **Returns**: `Promise<Space>`  
+    - **Description**: Fetches the current space.
+    - **Example**:
+      ```javascript
+      const space = await client.getSpace();
+      console.log(space);
+      ```
+
+11. **getTag(id: string)**  
+    - **Returns**: `Promise<Tag>`  
+    - **Description**: Fetches a specific tag.
+    - **Example**:
+      ```javascript
+      const tag = await client.getTag('<tag_id>');
+      console.log(tag);
+      ```
+
+12. **getTags(query?: TagQueries)**  
+    - **Returns**: `Promise<TagCollection>`  
+    - **Description**: Fetches a collection of tags.
+    - **Example**:
+      ```javascript
+      const response = await client.getTags();
+      console.log(response.items);
+      ```
+
+13. **parseEntries(data: EntryCollection<EntrySkeleton, AddChainModifier<Modifiers, "WITHOUT_LINK_RESOLUTION">, Locales>)**  
+    - **Returns**: `EntryCollection<EntrySkeleton, Modifiers, Locales>`  
+    - **Description**: Parses raw JSON data into a collection of entries.
+    - **Example**:
+      ```javascript
+      const parsedData = client.parseEntries(data);
+      console.log(parsedData.items);
+      ```
+
+14. **sync(query: SyncQuery, syncOptions?: SyncOptions)**  
+    - **Returns**: `Promise<SyncCollection<EntrySkeleton, Modifiers, Locales>>`  
+    - **Description**: Synchronizes content, fetching new content since the last sync.
+    - **Example**:
+      ```javascript
+      const response = await client.sync({ initial: true });
+      console.log({ entries: response.entries, assets: response.assets });
+      ```
+
+### Summary
+The `ContentfulClientApi` interface provides a comprehensive set of methods for interacting with Contentful's Delivery API, allowing for the retrieval and management of various content types, assets, and metadata. Each method is designed to return promises, facilitating asynchronous operations in JavaScript.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ContentfulCollection.html
+----------------------------------------
+
+### ContentfulCollection Interface
+
+**Interface:** `ContentfulCollection<T>`
+
+A wrapper for a collection of Contentful resources with additional metadata.
+
+#### Properties:
+- **items**: `T[]`  
+  An array of items in the collection.
+
+- **limit**: `number`  
+  The maximum number of items that can be returned.
+
+- **skip**: `number`  
+  The number of items to skip before starting to collect the result set.
+
+- **sys**: `EntrySys | AssetSys` (optional)  
+  System metadata for the collection.
+
+- **total**: `number`  
+  The total number of items available in the collection.
+
+#### Type Parameters:
+- **T**: The type of items in the collection.
+
+#### Definition Location:
+- Defined in `types/collection.ts` at line 10.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/CreateClientParams.html
+----------------------------------------
+
+### contentful.js - CreateClientParams Interface
+
+**Description**: This interface defines the parameters for initializing a Contentful client.
+
+#### Interface: `CreateClientParams`
+
+| Property                     | Type                                   | Description                                                   |
+|------------------------------|----------------------------------------|---------------------------------------------------------------|
+| `accessToken`                | `string`                               | Contentful CDA Access Token.                                 |
+| `adapter?`                   | `AxiosAdapter`                         | Optional Axios request adapter.                               |
+| `alphaFeatures?`             | `{ includeContentSourceMaps?: boolean }` | Enable alpha features.                                       |
+| `application?`               | `string`                               | Application name and version (e.g., `myApp/version`).      |
+| `basePath?`                  | `string`                               | Path appended to the host for gateways/proxies.             |
+| `environment?`               | `string`                               | Contentful Environment ID (default: `"master"`).            |
+| `headers?`                   | `Record<string, string>`               | Optional additional headers.                                 |
+| `host?`                      | `string`                               | API host (default: `"cdn.contentful.com"`).                 |
+| `httpAgent?`                 | `any`                                  | Optional Node.js HTTP agent for proxying.                   |
+| `httpsAgent?`                | `any`                                  | Optional Node.js HTTPS agent for proxying.                  |
+| `includeContentSourceMaps?`  | `boolean`                              | Enable Content Source Maps (available with Content Preview API). |
+| `insecure?`                  | `boolean`                              | Use HTTP instead of HTTPS (default: `true`).                |
+| `integration?`               | `string`                               | Integration name and version (e.g., `react/version`).       |
+| `logHandler?`                | `(level: string, data?: string | Record<string, any>) => void` | Log handler function for processing log messages.            |
+| `proxy?`                     | `false | AxiosProxyConfig`             | Optional Axios proxy configuration.                          |
+| `requestLogger?`             | `(request: Error | AxiosRequestConfig<any>) => unknown` | Interceptor for every request.                               |
+| `responseLogger?`            | `(response: Error | AxiosResponse<any, any>) => unknown` | Interceptor for every response.                              |
+| `retryLimit?`                | `number`                               | Number of retries before failure (default: `5`).            |
+| `retryOnError?`              | `boolean`                              | Retry on errors and 429 rate limit exceptions (default: `true`). |
+| `space`                      | `string`                               | Space ID.                                                   |
+| `timeout?`                   | `number`                               | Connection timeout in milliseconds (default: `30000`).      |
+
+### Example Usage
+```javascript
+const clientParams = {
+    accessToken: 'YOUR_ACCESS_TOKEN',
+    space: 'YOUR_SPACE_ID',
+    environment: 'master',
+    retryOnError: true,
+    timeout: 30000
+};
+```
+
+This concise summary retains essential technical details while ensuring clarity and ease of understanding for LLMs.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/EntitySys.html
+----------------------------------------
+
+### EntitySys Interface
+
+The `EntitySys` interface provides system-managed metadata for entities in Contentful.
+
+#### Properties:
+
+- **contentSourceMaps** (optional): `CPAContentSourceMaps`
+- **contentSourceMapsLookup** (optional): `ContentSourceMapsLookup`
+- **createdAt**: `string` (ISO 8601 format)
+- **environment**: `{ sys: EnvironmentLink }`
+- **id**: `string`
+- **locale** (optional): `string`
+- **publishedVersion**: `number`
+- **revision**: `number`
+- **space**: `{ sys: SpaceLink }`
+- **type**: `string`
+- **updatedAt**: `string` (ISO 8601 format)
+
+#### Inheritance:
+- Inherits properties from `BaseSys`: `id`, `type`.
+
+#### Definitions:
+- **createdAt**: Timestamp of creation.
+- **updatedAt**: Timestamp of last update.
+- **environment**: References the environment the entity belongs to.
+- **space**: References the space the entity belongs to.
+
+This interface is defined in `types/sys.ts`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/EntrySys.html
+----------------------------------------
+
+### EntrySys Interface
+
+The `EntrySys` interface represents system-managed metadata for entries in Contentful.
+
+#### Properties:
+- **contentSourceMaps** (optional): `CPAContentSourceMaps`
+- **contentSourceMapsLookup** (optional): `ContentSourceMapsLookup`
+- **contentType**: 
+  - `sys`: `ContentTypeLink`
+- **createdAt**: `string` (ISO 8601 format)
+- **environment**: 
+  - `sys`: `EnvironmentLink`
+- **id**: `string`
+- **locale** (optional): `string`
+- **publishedVersion**: `number`
+- **revision**: `number`
+- **space**: 
+  - `sys`: `SpaceLink`
+- **type**: `"Entry"`
+- **updatedAt**: `string` (ISO 8601 format)
+
+#### Inheritance:
+- Inherits properties from `EntitySys`:
+  - `contentSourceMaps`
+  - `contentSourceMapsLookup`
+  - `createdAt`
+  - `environment`
+  - `id`
+  - `locale`
+  - `publishedVersion`
+  - `revision`
+  - `space`
+  - `updatedAt`
+
+This interface is defined in `types/entry.ts` and provides essential metadata for managing entries within the Contentful system.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/FieldItem.html
+----------------------------------------
+
+### FieldItem Interface
+
+**Definition**: Represents an item belonging to a content type field.
+
+```typescript
+interface FieldItem {
+    linkType?: "Entry" | "Asset"; // Optional property
+    type: "Link" | "ResourceLink" | "Symbol"; // Required property
+    validations: ContentTypeFieldValidation[]; // Required property
+}
+```
+
+#### Properties:
+- **linkType**: Optional. Can be "Entry" or "Asset".
+- **type**: Required. Must be one of "Link", "ResourceLink", or "Symbol".
+- **validations**: Required. An array of `ContentTypeFieldValidation`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/GlobalOptionsParams.html
+----------------------------------------
+
+### GlobalOptionsParams Interface
+
+The `GlobalOptionsParams` interface defines optional parameters for configuring global options in Contentful.
+
+#### Properties:
+- **environment**: `string` (optional) - Specifies the environment.
+- **environmentBaseUrl**: `string` (optional) - URL for the environment base.
+- **space**: `string` (optional) - Specifies the space.
+- **spaceBaseUrl**: `string` (optional) - URL for the space base.
+
+#### Definition Location:
+- Defined in `create-global-options.ts` at lines 4-8.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/Link.html
+----------------------------------------
+
+### contentful.js - Link Interface
+
+**Interface**: `Link<T>`
+
+**Description**: Represents a specific link type.
+
+#### Type Parameters
+- **T**: Extends `LinkType`
+
+#### Properties
+- **id**: `string` - Unique identifier for the link.
+- **linkType**: `T` - The specific type of the link.
+- **type**: `"Link"` - Constant value indicating the type of the interface.
+
+**Defined in**: `types/link.ts` 
+
+This interface is used to define links in Contentful, providing a structured way to reference linked content.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/Locale.html
+----------------------------------------
+
+### Locale Interface
+
+The `Locale` interface defines the properties of a single locale definition in Contentful.
+
+#### Properties:
+- **code**: `string` - The locale code. *(Defined in `types/locale.ts:23`)*
+- **default**: `boolean` - Indicates if this locale is the default. *(Defined in `types/locale.ts:25`)*
+- **fallbackCode**: `null | string` - The fallback locale code. *(Defined in `types/locale.ts:26`)*
+- **name**: `string` - The name of the locale. *(Defined in `types/locale.ts:24`)*
+- **sys**: `LocaleSys` - System metadata for the locale. *(Defined in `types/locale.ts:27`)*
+
+This interface is located in `types/locale.ts` at line 22.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/LocaleSys.html
+----------------------------------------
+
+### LocaleSys Interface
+
+**Description:**  
+Represents system-managed metadata for a locale.
+
+**Interface Definition:**
+```typescript
+interface LocaleSys {
+    id: string;        // Unique identifier for the locale
+    type: "Locale";    // Type of the system (overrides BaseSys.type)
+    version: number;   // Version number of the locale
+}
+```
+
+**Properties:**
+- `id`: `string` - Unique identifier (inherited from BaseSys).
+- `type`: `"Locale"` - Specifies the type (overrides BaseSys.type).
+- `version`: `number` - Version of the locale.
+
+**Defined In:**  
+`types/locale.ts` (lines 13-15)  
+Inherits from `BaseSys`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/ResourceLink.html
+----------------------------------------
+
+### ResourceLink Interface
+
+**Definition**: Represents an external resource link.
+
+```typescript
+interface ResourceLink<LinkType extends string = "Contentful:Entry"> {
+    linkType: LinkType; // Type of the link
+    type: "ResourceLink"; // Fixed type identifier
+    urn: string; // Uniform Resource Name
+}
+```
+
+**Type Parameters**:
+- `LinkType`: A string that defaults to `"Contentful:Entry"`.
+
+**Properties**:
+- `linkType`: Specifies the type of the link.
+- `type`: Always set to `"ResourceLink"`.
+- `urn`: A string representing the unique resource identifier. 
+
+**File Location**: Defined in `types/resource-link.ts`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/Space.html
+----------------------------------------
+
+### Space Interface
+
+The `Space` interface represents a Contentful space with the following properties:
+
+- **locales**: An array of `Locale` objects without the `sys` property.
+- **name**: A string representing the name of the space.
+- **sys**: An object of type `SpaceSys` containing system-related information.
+
+#### Properties
+
+- **locales**: `Omit<Locale, "sys">[]`
+- **name**: `string`
+- **sys**: `SpaceSys`
+
+#### Defined In
+- `types/space.ts` at lines 18-21.
+
+This interface is essential for interacting with Contentful's Content Delivery API (CDA) regarding spaces.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/SpaceSys.html
+----------------------------------------
+
+### SpaceSys Interface
+
+**Description:**  
+Represents system-managed metadata for spaces in Contentful.
+
+**Properties:**
+- **id**: `string`  
+  Unique identifier for the space. Inherited from `BaseSys`.
+
+- **type**: `"Space"`  
+  Specifies the type as "Space". Overrides the `type` from `BaseSys`.
+
+**Hierarchy:**  
+- Inherits from `BaseSys`.
+
+**Defined In:**  
+- `types/space.ts:9`  
+- `types/sys.ts:10`  
+
+**Reference:**  
+For common attributes, refer to the CDA documentation.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/SyncCollection.html
+----------------------------------------
+
+### SyncCollection Interface
+
+**Definition:**  
+`SyncCollection<EntrySkeleton, Modifiers, Locales>`
+
+**Properties:**
+- **assets:**  
+  `Asset<ChainModifiers extends Modifiers ? ChainModifiers<ChainModifiers> : "WITH_ALL_LOCALES" | Exclude<Modifiers, undefined>, Locales>[]`
+  
+- **deletedAssets:**  
+  `DeletedAsset[]`
+  
+- **deletedEntries:**  
+  `DeletedEntry[]`
+  
+- **entries:**  
+  `Entry<EntrySkeleton, ChainModifiers extends Modifiers ? ChainModifiers<ChainModifiers> : "WITH_ALL_LOCALES" | Exclude<Modifiers, undefined>, Locales>[]`
+  
+- **nextPageToken (optional):**  
+  `string`
+  
+- **nextSyncToken (optional):**  
+  `string`
+
+**Type Parameters:**
+- `EntrySkeleton extends EntrySkeletonType`
+- `Modifiers extends ChainModifiers = ChainModifiers`
+- `Locales extends LocaleCode = LocaleCode`
+
+**File Reference:**  
+Defined in `types/sync.ts` (lines 78-103).
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/interfaces/TagSys.html
+----------------------------------------
+
+### TagSys Interface
+
+The `TagSys` interface represents system-managed metadata for tags in Contentful.
+
+#### Properties
+
+- **contentSourceMaps** (optional): `CPAContentSourceMaps`
+- **contentSourceMapsLookup** (optional): `ContentSourceMapsLookup`
+- **createdAt**: ISO 8601 date string (e.g., `YYYY-MM-DDTHH:MM:SSZ`)
+- **createdBy**: `{ sys: UserLink }`
+- **environment**: `{ sys: EnvironmentLink }`
+- **id**: `string`
+- **publishedVersion**: `number`
+- **space**: `{ sys: SpaceLink }`
+- **type**: `string`
+- **updatedAt**: ISO 8601 date string (e.g., `YYYY-MM-DDTHH:MM:SSZ`)
+- **updatedBy**: `{ sys: UserLink }`
+- **version**: `number`
+- **visibility**: `string`
+
+#### Inheritance
+- Properties inherited from `Omit<EntitySys, "locale" | "revision">`:
+  - `contentSourceMaps`
+  - `contentSourceMapsLookup`
+  - `createdAt`
+  - `environment`
+  - `space`
+  - `updatedAt`
+
+#### Definitions
+- Defined in `types/tag.ts` and `types/sys.ts`.
+
+This interface is essential for managing tags within the Contentful ecosystem.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/media/LICENSE
+----------------------------------------
+
+### TagSys Interface
+
+The `TagSys` interface represents system-managed metadata for tags in Contentful.
+
+#### Properties:
+
+- **contentSourceMaps**: `CPAContentSourceMaps` (optional)
+- **contentSourceMapsLookup**: `ContentSourceMapsLookup` (optional)
+- **createdAt**: `string` (ISO 8601 format)
+- **createdBy**: `{ sys: UserLink }`
+- **environment**: `{ sys: EnvironmentLink }`
+- **id**: `string`
+- **publishedVersion**: `number`
+- **space**: `{ sys: SpaceLink }`
+- **type**: `string`
+- **updatedAt**: `string` (ISO 8601 format)
+- **updatedBy**: `{ sys: UserLink }`
+- **version**: `number`
+- **visibility**: `string`
+
+#### Notes:
+- The `createdAt`, `updatedAt` fields are formatted as ISO 8601 strings.
+- The `createdBy`, `updatedBy`, `environment`, and `space` properties contain links to their respective entities.
+
+This interface is defined in `types/tag.ts` and inherits properties from `EntitySys`, excluding `locale` and `revision`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/modules/EntryFieldTypes.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Namespace:** EntryFieldTypes  
+**Description:** Defines abstract entry field types with additional properties for consistent query types.
+
+**Defined in:** `types/entry.ts:27`
+
+#### Type Aliases:
+- **Array**
+- **Asset**
+- **Link**
+- **Boolean**
+- **Date**
+- **Entry**
+- **Resource Link**
+- **External Resource Link**
+- **Integer**
+- **Location**
+- **Number**
+- **Object**
+- **Rich Text**
+- **Symbol**
+- **Text**
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/modules/EntryFields.html
+----------------------------------------
+
+**contentful.js - EntryFields Namespace**
+
+**Definition**: Represents entry fields in Contentful.
+
+**Location**: Defined in `types/entry.ts` at line 67.
+
+**Type Aliases**:
+- **Array**
+- **Asset**
+- **Link**
+- **Boolean**
+- **Date**
+- **Entry**
+- **Integer**
+- **Location**
+- **Number**
+- **Object**
+- **Rich Text**
+- **Symbol**
+- **Text**
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AddChainModifier.html
+----------------------------------------
+
+### API Method: AddChainModifier
+
+**Type Alias**: `AddChainModifier<Modifiers, AddedModifier>`
+
+**Description**: 
+Adds a modifier to a list of client chain modifiers.
+
+**Type Parameters**:
+- `Modifiers`: Must extend `ChainModifiers`.
+- `AddedModifier`: Must extend `Exclude<ChainModifiers, undefined>`.
+
+**Defined In**: `types/client.ts:38`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetCollection.html
+----------------------------------------
+
+### contentful.js - AssetCollection
+
+**Type Alias:**  
+`AssetCollection<Modifiers, Locales>`  
+- Represents a collection of assets.
+
+**Type Parameters:**  
+- **Modifiers**: `extends ChainModifiers = ChainModifiers`  
+  - Chain modifiers for client configuration, set automatically when using client chain modifiers.
+  
+- **Locales**: `extends LocaleCode = LocaleCode`  
+  - Defines locale keys for asset field values if using `allLocales` modifier.
+
+**Defined in:**  
+`types/asset.ts:83`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetFieldsFileDetailsQueries.html
+----------------------------------------
+
+### contentful.js - AssetFieldsFileDetailsQueries
+
+**Type Alias:** `AssetFieldsFileDetailsQueries`
+
+**Description:** 
+This type alias encompasses all queries applicable to asset file details fields.
+
+**Components:**
+- **ExistenceFilter:** Checks for the existence of file details.
+- **EqualityFilter:** Compares file details for equality.
+- **InequalityFilter:** Compares file details for inequality.
+- **RangeFilters:** Applies range-based filtering on file details.
+- **SubsetFilters:** Filters based on subsets of file details.
+
+**Type Parameter:**
+- **Fields:** Represents the shape of asset fields used for dynamic key calculations.
+
+**Defined in:** `types/query/query.ts:164`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetFieldsFileQueries.html
+----------------------------------------
+
+### contentful.js - AssetFieldsFileQueries
+
+**Type Alias:** `AssetFieldsFileQueries`
+
+**Description:**  
+This type alias encompasses all queries applicable to asset file fields.
+
+**Queries Included:**
+- **ExistenceFilter**: Checks if the asset file exists.
+- **EqualityFilter**: Compares asset file fields for equality.
+- **InequalityFilter**: Compares asset file fields for inequality.
+- **FullTextSearchFilters**: Allows full-text search on asset file fields.
+- **RangeFilters**: Applies range conditions on asset file fields.
+- **SubsetFilters**: Filters based on subsets of asset file fields.
+
+**Type Parameter:**
+- **Fields**: Represents the shape of asset fields used for dynamic key calculations.
+
+**Defined in:** `types/query/query.ts:152`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetFieldsQueries.html
+----------------------------------------
+
+### contentful.js - AssetFieldsQueries
+
+**Type Alias**: `AssetFieldsQueries<Fields>`
+
+**Description**: Represents all queries applicable to asset fields.
+
+**Type Parameters**:
+- `Fields`: Extends `FieldsType`. Defines the shape of asset fields used for dynamic key calculations.
+
+**Composed of**:
+- `ExistenceFilter<Fields, "fields">`
+- `EqualityFilter<Fields, "fields">`
+- `InequalityFilter<Fields, "fields">`
+- `FullTextSearchFilters<Fields, "fields">`
+- `AssetSelectFilter<Fields>`
+- `AssetOrderFilter`
+- `RangeFilters<Fields, "fields">`
+- `SubsetFilters<Fields, "fields">`
+
+**Defined in**: `types/query/query.ts:138`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetKey.html
+----------------------------------------
+
+### contentful.js
+
+#### AssetKey Type Alias
+```typescript
+type AssetKey = {
+    policy: string;
+    secret: string;
+};
+```
+**Defined in:** `types/asset-key.ts:4`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetLink.html
+----------------------------------------
+
+### AssetLink Type Alias
+
+**Type:** `AssetLink`  
+**Description:** Represents a link to an Asset.  
+**Link Type:** `Link<"Asset">`  
+**Defined in:** `types/link.ts:54`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetMimeType.html
+----------------------------------------
+
+### contentful.js - AssetMimeType
+
+**Type Alias:** `AssetMimeType`
+
+**Possible Values:**
+- "attachment"
+- "plaintext"
+- "image"
+- "audio"
+- "video"
+- "richtext"
+- "presentation"
+- "spreadsheet"
+- "pdfdocument"
+- "archive"
+- "code"
+- "markup"
+
+**Defined in:** `types/asset.ts:62`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetOrderFilter.html
+----------------------------------------
+
+### AssetOrderFilter Type Alias
+
+**Definition**:  
+`AssetOrderFilter` is a type alias that specifies the order in which assets can be filtered.
+
+**Structure**:  
+```typescript
+type AssetOrderFilter = {
+    order?: (
+        | OrderFilterPaths<AssetSys, "sys">
+        | "fields.file.contentType"
+        | "-fields.file.contentType"
+        | "fields.file.fileName"
+        | "-fields.file.fileName"
+        | "fields.file.url"
+        | "-fields.file.url"
+        | "fields.file.details.size"
+        | "-fields.file.details.size"
+    )[];
+};
+```
+
+**Key Points**:
+- The `order` property is optional.
+- It can include various fields related to asset files and their properties.
+- Each field can be prefixed with a minus sign (`-`) to indicate descending order.
+
+**Location**:  
+Defined in `types/query/order.ts` at line 71.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetQueries.html
+----------------------------------------
+
+### contentful.js - AssetQueries
+
+**Type Alias:** `AssetQueries<Modifiers>`
+
+**Description:**  
+Defines search parameters for methods related to a single asset.
+
+**Type Parameters:**
+- `Modifiers`: Extends `ChainModifiers`. Automatically set when using client chain modifiers.
+
+**Condition:**  
+If `Modifiers` includes `"WITH_ALL_LOCALES"`, the type resolves to `never`; otherwise, it resolves to `LocaleOption`.
+
+**Defined in:** `types/query/query.ts:198`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetSelectFilter.html
+----------------------------------------
+
+### AssetSelectFilter Type Alias
+
+**Definition:**
+```typescript
+type AssetSelectFilter<Fields extends FieldsType> = {
+    select?: (
+        | "sys"
+        | SelectFilterPaths<AssetSys, "sys">
+        | "fields"
+        | SelectFilterPaths<Fields, "fields">
+        | "metadata"
+        | SelectFilterPaths<Metadata, "metadata">
+    )[];
+}
+```
+
+**Purpose:** 
+This type alias is used to specify which fields to select in an asset.
+
+**Type Parameters:**
+- `Fields`: A generic type that extends `FieldsType`.
+
+**Location:** Defined in `types/query/select.ts` at line 47.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetSys.html
+----------------------------------------
+
+### AssetSys Type Alias
+
+**Type**: `AssetSys`  
+**Structure**:  
+- Extends `EntitySys`
+- Contains:
+  - `type`: `"Asset"`
+
+**Description**:  
+System-managed metadata for assets.
+
+**Defined in**: `types/asset.ts:92`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/AssetsQueries.html
+----------------------------------------
+
+### AssetsQueries Type Alias
+
+**Type Alias:** `AssetsQueries<Fields, Modifiers>`
+
+**Description:** Represents search parameters for asset collection methods.
+
+**Composition:**
+- `AssetFieldsQueries<Fields>`
+- `AssetFieldsFileQueries`
+- `AssetFieldsFileDetailsQueries`
+- `MetadataConceptsQueries`
+- `SysQueries<Pick<AssetSys, "createdAt" | "updatedAt" | "revision" | "id" | "type">>`
+- `MetadataTagsQueries`
+- `FixedQueryOptions`
+- `FixedPagedOptions`
+- `{ mimetype_group?: AssetMimeType; }`
+- Conditional: `"WITH_ALL_LOCALES" extends Modifiers ? {} : LocaleOption`
+
+**Type Parameters:**
+- **Fields:** Extends `FieldsType`
+- **Modifiers:** Extends `ChainModifiers` (set automatically with client chain modifiers)
+
+**Additional Type:**
+- **EntrySkeleton:** Defines the shape of an asset for dynamic key calculations (defined in `types/query/query.ts:179`).
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/BaseEntry.html
+----------------------------------------
+
+**BaseEntry Type Alias**  
+- **Definition**: Represents an entry in Contentful.
+- **Structure**:  
+  ```javascript
+  {
+      metadata: Metadata;
+      sys: EntrySys;
+  }
+  ```
+- **Location**: Defined in `types/entry.ts` at line 136.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/BaseFieldMap.html
+----------------------------------------
+
+### contentful.js - BaseFieldMap Type Alias
+
+**Type Alias:** `BaseFieldMap<Field>`
+
+**Description:** 
+Maps abstract entry field types to specific entry field types based on the provided `Field` type.
+
+**Field Type Conditions:**
+- If `Field` is `EntryFieldTypes.Symbol`, returns `EntryFields.Symbol<Values>`.
+- If `Field` is `EntryFieldTypes.Text`, returns `EntryFields.Text<Values>`.
+- If `Field` is `EntryFieldTypes.Integer`, returns `EntryFields.Integer<Values>`.
+- If `Field` is `EntryFieldTypes.Number`, returns `EntryFields.Number<Values>`.
+- If `Field` is `EntryFieldTypes.Date`, returns `EntryFields.Date`.
+- If `Field` is `EntryFieldTypes.Boolean`, returns `EntryFields.Boolean`.
+- If `Field` is `EntryFieldTypes.Location`, returns `EntryFields.Location`.
+- If `Field` is `EntryFieldTypes.RichText`, returns `EntryFields.RichText`.
+- If `Field` is `EntryFieldTypes.Object`, returns `EntryFields.Object<Data>`.
+- Otherwise, returns `never`.
+
+**Type Parameters:**
+- `Field extends EntryFieldType<EntrySkeletonType>`
+
+**Defined in:** `types/entry.ts:146` 
+
+This structure allows for type-safe mapping of various entry field types in Contentful.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/BoundingBoxSearchFilterInput.html
+----------------------------------------
+
+### BoundingBoxSearchFilterInput
+
+**Type Alias**: `BoundingBoxSearchFilterInput`  
+**Definition**:  
+```typescript
+type BoundingBoxSearchFilterInput = [number, number, number, number];
+```
+**File Location**: `types/query/location.ts:7`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/BoundingCircleSearchFilterInput.html
+----------------------------------------
+
+### BoundingCircleSearchFilterInput
+
+**Type Alias:** `BoundingCircleSearchFilterInput`
+
+**Definition:**  
+`BoundingCircleSearchFilterInput` is defined as an array of three numbers. 
+
+**Location:**  
+Defined in `types/query/location.ts` at line 8.
+
+**Format:**  
+```typescript
+type BoundingCircleSearchFilterInput = [number, number, number];
+```
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/BoundingObjectSearchFilter.html
+----------------------------------------
+
+### BoundingObjectSearchFilter
+
+**Type Alias:** `BoundingObjectSearchFilter<Fields, Prefix>`
+
+**Description:**  
+A filter for searching locations within a bounding object, extending from `BaseLocationFilter`.
+
+**Parameters:**
+- **Fields:** Generic type for the fields used in the filter.
+- **Prefix:** A string that acts as a prefix for the filter.
+
+**Input Types:**
+- `BoundingCircleSearchFilterInput`
+- `BoundingBoxSearchFilterInput`
+
+**Key Property:**
+- `within`: Specifies the location in a bounding object within the provided fields.
+
+**Defined in:** `types/query/location.ts:39`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ChainModifiers.html
+----------------------------------------
+
+### ChainModifiers Type Alias
+
+**Definition**: `ChainModifiers` is a type alias used in the Contentful client configuration.
+
+**Possible Values**:
+- `"WITH_ALL_LOCALES"`
+- `"WITHOUT_LINK_RESOLUTION"`
+- `"WITHOUT_UNRESOLVABLE_LINKS"`
+- `undefined`
+
+**Usage**: These modifiers are applicable to all types that rely on client configuration.
+
+**Location**: Defined in `types/client.ts` at line 27.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ClientLogLevel.html
+----------------------------------------
+
+### contentful.js
+
+#### ClientLogLevel
+**Type Alias:** `ClientLogLevel`
+
+**Possible Values:**
+- `"error"`
+- `"warning"`
+- `"info"`
+- `string` (custom log level)
+
+**Defined in:** `contentful.ts:21`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConceptCollection.html
+----------------------------------------
+
+### ConceptCollection Type Alias
+
+**Definition:**
+```typescript
+type ConceptCollection<Locale> = {
+    items: Concept<Locale>[];
+    limit: number;
+    pages?: {
+        next?: string;
+        prev?: string;
+    };
+    sys: {
+        type: "Array";
+    };
+}
+```
+
+**Type Parameters:**
+- `Locale`: Extends `LocaleCode`.
+
+**File Reference:** Defined in `types/concept.ts:66`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConceptSchemeCollection.html
+----------------------------------------
+
+### ConceptSchemeCollection Type Alias
+
+**Definition:**
+```typescript
+type ConceptSchemeCollection<Locale> = {
+    items: ConceptScheme<Locale>[];
+    limit: number;
+    pages?: {
+        next?: string;
+        prev?: string;
+    };
+    sys: {
+        type: "Array";
+    };
+};
+```
+
+**Type Parameters:**
+- `Locale`: Extends `LocaleCode`.
+
+**File Reference:** Defined in `types/concept-scheme.ts:30`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConceptSchemeSys.html
+----------------------------------------
+
+### ConceptSchemeSys Type Alias
+
+**Definition:**
+```typescript
+type ConceptSchemeSys = {
+    createdAt: ISODateString;
+    id: string;
+    type: "TaxonomyConceptScheme";
+    updatedAt: ISODateString;
+    version: number;
+}
+```
+
+**Location:** Defined in `types/concept-scheme.ts` at line 6.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConceptSchemesQueries.html
+----------------------------------------
+
+### ConceptSchemesQueries Type Alias
+
+**Definition**: `ConceptSchemesQueries` is a type alias that combines `CursorPaginationOptions` and `TaxonomyOrderFilter`.
+
+**Location**: Defined in `types/query/query.ts` at line 230.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConceptSys.html
+----------------------------------------
+
+### ConceptSys Type Alias
+
+**Definition:**
+```typescript
+type ConceptSys = {
+    createdAt: ISODateString; // Date of creation
+    id: string;               // Unique identifier
+    type: "TaxonomyConcept";  // Type of the concept
+    updatedAt: ISODateString; // Date of last update
+    version: number;          // Version number
+};
+```
+**File Location:** `types/concept.ts:6`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConceptsQueries.html
+----------------------------------------
+
+### ConceptsQueries Type Alias
+
+**Type Definition:**
+```typescript
+type ConceptsQueries = CursorPaginationOptions & TaxonomyOrderFilter & {
+    concept_scheme?: string;
+};
+```
+
+**Location:** Defined in `types/query/query.ts` at line 227.
+
+### Key Points:
+- **CursorPaginationOptions**: Used for pagination in queries.
+- **TaxonomyOrderFilter**: Applies ordering based on taxonomy.
+- **concept_scheme**: Optional string parameter to specify the concept scheme.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConditionalFixedQueries.html
+----------------------------------------
+
+### Type Alias: ConditionalFixedQueries
+
+**Definition:**
+```typescript
+ConditionalFixedQueries<Fields, SupportedTypes, ValueType, Prefix, QueryFilter>
+```
+
+**Structure:**
+```typescript
+{
+    [FieldName in keyof ConditionalPick<Fields, SupportedTypes> as `${Prefix}.${string & FieldName}${QueryFilter}`]?: ValueType
+}
+```
+
+**Type Parameters:**
+- `Fields`: Extends `FieldsType`
+- `SupportedTypes`: Type of supported fields
+- `ValueType`: Type of the value
+- `Prefix`: Extends `string`
+- `QueryFilter`: Extends `string` (default: `""`)
+
+**Location:**
+Defined in `types/query/util.ts:22`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ConditionalListQueries.html
+----------------------------------------
+
+### ConditionalListQueries Type Alias
+
+**Definition:**
+```typescript
+type ConditionalListQueries<Fields, SupportedTypes, Prefix extends string, QueryFilter extends string = ""> = {
+    [FieldName in keyof ConditionalPick<Fields, SupportedTypes> as `${Prefix}.${string & FieldName}${QueryFilter}`]?: NonNullable<BaseOrArrayType<Fields[FieldName]>>[]
+}
+```
+
+**Type Parameters:**
+- **Fields**: The fields to query.
+- **SupportedTypes**: The types supported for the fields.
+- **Prefix**: A string prefix for the field names.
+- **QueryFilter**: An optional string filter for the query (default is an empty string).
+
+**Location:** Defined in `types/query/util.ts:33`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ContentTypeCollection.html
+----------------------------------------
+
+### contentful.js
+
+#### ContentTypeCollection
+- **Type Alias**: `ContentTypeCollection`
+- **Type**: `ContentfulCollection<ContentType>`
+- **Description**: Represents a collection of content types.
+
+- **Defined in**: `types/content-type.ts:130`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ContentTypeFieldType.html
+----------------------------------------
+
+### ContentTypeFieldType
+
+**Type Alias:** `ContentTypeFieldType`
+
+**Field Types:**
+- `"Symbol"`
+- `"Text"`
+- `"Integer"`
+- `"Number"`
+- `"Date"`
+- `"Boolean"`
+- `"Location"`
+- `"Link"`
+- `"Array"`
+- `"Object"`
+- `"RichText"`
+- `"ResourceLink"`
+
+**Defined in:** `types/content-type.ts:48`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ContentTypeLink.html
+----------------------------------------
+
+### contentful.js Documentation Summary
+
+**ContentTypeLink**  
+- **Type Alias**: `ContentTypeLink`  
+- **Type**: `Link<"ContentType">`  
+- **Description**: Represents a link to a content type.  
+
+**Defined in**: `types/link.ts:42`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/DeletedAsset.html
+----------------------------------------
+
+### DeletedAsset Type Alias
+
+**Definition:**
+```typescript
+type DeletedAsset = {
+    sys: EntitySys & {
+        type: "DeletedAsset";
+    };
+};
+```
+
+**Description:**
+Represents system-managed metadata for deleted assets.
+
+**Location:**
+Defined in `types/sync.ts` at line 66.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/DeletedEntry.html
+----------------------------------------
+
+### contentful.js - DeletedEntry Type Alias
+
+**Type Alias:** `DeletedEntry`
+
+**Structure:**
+```typescript
+{
+    sys: EntitySys & {
+        type: "DeletedEntry";
+    };
+}
+```
+
+**Description:** Represents system-managed metadata for deleted entries.
+
+**Defined in:** `types/sync.ts:58`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntriesQueries.html
+----------------------------------------
+
+### contentful.js - EntriesQueries Type Alias
+
+**Type Alias:** `EntriesQueries<EntrySkeleton, Modifiers>`
+
+**Description:** 
+Defines search parameters for entry collection methods, combining various query types.
+
+**Components:**
+- **EntryFieldsQueries<EntrySkeleton["fields"]>**
+- **EntryContentTypeQuery<EntrySkeleton["contentTypeId"]>**
+- **SysQueries<Pick<EntrySys, "createdAt" | "updatedAt" | "revision" | "id" | "type">>**
+- **MetadataTagsQueries**
+- **MetadataConceptsQueries**
+- **EntrySelectFilter**
+- **EntryOrderFilter**
+- **FixedQueryOptions**
+- **FixedPagedOptions**
+- **FixedLinkOptions**
+- **LocaleOption (conditional on "WITH_ALL_LOCALES" modifier)**
+
+**Type Parameters:**
+- **EntrySkeleton:** Extends `EntrySkeletonType`, representing the shape of an entry for dynamic key calculations.
+- **Modifiers:** Extends `ChainModifiers`, automatically set when using client chain modifiers.
+
+**Defined in:** `types/query/query.ts:109`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/Entry.html
+----------------------------------------
+
+### Contentful.js - Entry Type Alias
+
+**Entry Type Alias**: `Entry<EntrySkeleton, Modifiers, Locales>`
+
+**Description**: Represents any defined Content Type in a space.
+
+**Structure**:
+- **BaseEntry** & 
+  - **fields**: 
+    - If `ChainModifiers` extends `Modifiers`:
+      - Maps `FieldName` in `keyof EntrySkeleton["fields"]` to:
+        - Optional `ResolvedField<EntrySkeleton["fields"][FieldName], Modifiers, Locales>` for each `LocaleName` in `Locales`.
+    - Otherwise:
+      - Maps `FieldName` in `keyof EntrySkeleton["fields"]` to:
+        - `ResolvedField<EntrySkeleton["fields"][FieldName], Modifiers, Locales>`.
+
+- **sys**: 
+  - **contentType**: 
+    - **sys**: 
+      - **id**: `EntrySkeleton["contentTypeId"]`.
+
+### Type Parameters
+- **EntrySkeleton**: Extends `EntrySkeletonType` - Defines the shape of entry fields for dynamic keys.
+- **Modifiers**: Extends `ChainModifiers` - Automatically set when using client chain modifiers.
+- **Locales**: Extends `LocaleCode` - Defines locale keys for entry field values when using `allLocales` modifier.
+
+**Defined in**: `types/entry.ts:284`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryCollection.html
+----------------------------------------
+
+### contentful.js - EntryCollection
+
+**Type Alias:** `EntryCollection<EntrySkeleton, Modifiers, Locales>`
+
+**Description:**  
+A collection of entries that includes optional error and include properties.
+
+**Structure:**
+```typescript
+EntryCollection<EntrySkeleton, Modifiers, Locales> = ContentfulCollection<Entry<EntrySkeleton, Modifiers, Locales>> & {
+    errors?: any[];
+    includes?: {
+        Asset?: Asset<Modifiers, Locales>[];
+        Entry?: Entry<EntrySkeletonType, Modifiers, Locales>[];
+    };
+}
+```
+
+**Type Parameters:**
+- **EntrySkeleton**: Extends `EntrySkeletonType`. Defines the shape of entry fields for dynamic keys.
+- **Modifiers**: Extends `ChainModifiers`. Automatically set when using client chain modifiers.
+- **Locales**: Extends `LocaleCode`. Defines locale keys for entry field values when using `allLocales` modifier.
+
+**Defined in:** `types/entry.ts:335`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryContentTypeQuery.html
+----------------------------------------
+
+### EntryContentTypeQuery Type Alias
+
+**Type Alias:** `EntryContentTypeQuery<T>`
+
+**Definition:**
+```typescript
+{ 
+    content_type: T; 
+}
+```
+
+**Type Parameters:**
+- `T`: A type that extends `string`.
+
+**File Location:** `types/query/query.ts:99`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryField.html
+----------------------------------------
+
+### contentful.js - EntryField Type Alias
+
+**Type Alias:** `EntryField<EntrySkeleton>`
+
+**Possible Values for Entry Field Types:**
+- `EntryFields.Symbol`
+- `EntryFields.Text`
+- `EntryFields.Integer`
+- `EntryFields.Number`
+- `EntryFields.Date`
+- `EntryFields.Boolean`
+- `EntryFields.Location`
+- `EntryFields.RichText`
+- `EntryFields.Object`
+- `EntryFields.EntryLink<EntrySkeleton>`
+- `EntryFields.AssetLink`
+- `EntryFields.Array<EntryFields.Symbol>`
+- `EntryFields.Array<EntryFields.AssetLink>`
+- `EntryFields.Array<EntryFields.EntryLink<EntrySkeleton>>`
+
+**Type Parameters:**
+- `EntrySkeleton` extends `EntrySkeletonType` (Defined in `types/entry.ts:117`)
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldType.html
+----------------------------------------
+
+### contentful.js - EntryFieldType
+
+**Type Alias:** `EntryFieldType<EntrySkeleton>`
+
+**Possible Values:**
+- `EntryFieldTypes.Symbol`
+- `EntryFieldTypes.Text`
+- `EntryFieldTypes.Integer`
+- `EntryFieldTypes.Number`
+- `EntryFieldTypes.Date`
+- `EntryFieldTypes.Boolean`
+- `EntryFieldTypes.Location`
+- `EntryFieldTypes.RichText`
+- `EntryFieldTypes.Object`
+- `EntryFieldTypes.EntryLink<EntrySkeleton>`
+- `EntryFieldTypes.EntryResourceLink<EntrySkeleton>`
+- `EntryFieldTypes.ExternalResourceLink`
+- `EntryFieldTypes.AssetLink`
+- `EntryFieldTypes.Array<EntryFieldTypes.Symbol>`
+- `EntryFieldTypes.Array<EntryFieldTypes.AssetLink>`
+- `EntryFieldTypes.Array<EntryFieldTypes.EntryLink<EntrySkeleton>>`
+- `EntryFieldTypes.Array<EntryFieldTypes.EntryResourceLink<EntrySkeleton> | EntryFieldTypes.ExternalResourceLink>`
+
+**Type Parameters:**
+- `EntrySkeleton extends EntrySkeletonType`
+
+**Defined in:** `types/entry.ts:92`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Array.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: Array<Item>**
+
+**Structure:**
+```typescript
+{
+    item: Item;
+    type: "Array";
+}
+```
+
+**Type Parameters:**
+- **Item**: Extends one of the following:
+  - `EntryFieldTypes.Symbol`
+  - `EntryFieldTypes.AssetLink`
+  - `EntryFieldTypes.EntryLink<EntrySkeletonType>`
+  - `EntryFieldTypes.EntryResourceLink<EntrySkeletonType>`
+  - `EntryFieldTypes.ExternalResourceLink`
+
+**Defined in:** `types/entry.ts:49`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.AssetLink.html
+----------------------------------------
+
+### API Method: AssetLink
+
+**Type Alias:** `AssetLink`
+
+**Definition:**
+```javascript
+{
+    type: "AssetLink";
+}
+```
+
+**Location:** Defined in `types/entry.ts` at line 48.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Boolean.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: Boolean**
+- **Structure**: 
+  ```json
+  {
+    "type": "Boolean"
+  }
+  ```
+- **Defined in**: `types/entry.ts:33`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Date.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: Date**
+- **Definition**: 
+  ```javascript
+  { 
+      type: "Date" 
+  }
+  ```
+- **Location**: Defined in `types/entry.ts` at line 32.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.EntryLink.html
+----------------------------------------
+
+### contentful.js - EntryLink Type Alias
+
+**Type Alias:** `EntryLink<EntrySkeleton>`
+
+**Definition:**
+```typescript
+{
+    entry: EntrySkeleton;
+    type: "EntryLink";
+}
+```
+
+**Type Parameters:**
+- `EntrySkeleton`: Extends `EntrySkeletonType`.
+
+**Location:** Defined in `types/entry.ts` at line 37.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.EntryResourceLink.html
+----------------------------------------
+
+**contentful.js - EntryFieldTypes**
+
+**EntryResourceLink Type Alias**
+```typescript
+type EntryResourceLink<EntrySkeleton> = {
+    entry: EntrySkeleton;
+    type: "EntryResourceLink";
+}
+```
+
+**Type Parameters**
+- `EntrySkeleton`: Extends `EntrySkeletonType`.
+
+**Defined in**: `types/entry.ts:41`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.ExternalResourceLink.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: ExternalResourceLink**
+- **Definition**: 
+  ```javascript
+  { 
+      type: "ExternalResourceLink"; 
+  }
+  ```
+- **Location**: Defined in `types/entry.ts` at line 45.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Integer.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+#### Type Alias: Integer<Values>
+- **Structure**:
+  ```typescript
+  {
+      type: "Integer";
+      values: Values;
+  }
+  ```
+- **Type Parameters**:
+  - `Values`: Extends `number` (default: `number`)
+- **Defined in**: `types/entry.ts:30`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Location.html
+----------------------------------------
+
+**API Method: EntryFieldTypes.Location**
+
+**Type Alias:** `Location`
+
+**Definition:**
+```javascript
+{
+    type: "Location"
+}
+```
+
+**File Reference:** Defined in `types/entry.ts` at line 34.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Number.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: `Number<Values>`**
+
+```typescript
+type Number<Values extends number = number> = {
+    type: "Number";
+    values: Values;
+};
+```
+
+**Defined in:** `types/entry.ts:31`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Object.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias:** `Object<Data>`
+
+**Description:** Represents an object with a data property.
+
+**Structure:**
+```typescript
+{
+    data: Data; // Data can be JsonObject, JsonArray, or null
+    type: "Object";
+}
+```
+
+**Type Parameters:**
+- `Data`: Extends `JsonObject | JsonArray | null` (default is `JsonObject | JsonArray | null`).
+
+**Defined in:** `types/entry.ts:57`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.RichText.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: RichText**
+
+- **Definition**: 
+  - Represents a rich text entry.
+  
+- **Structure**: 
+  ```javascript
+  {
+      type: "RichText"
+  }
+  ```
+
+- **File Location**: 
+  Defined in `types/entry.ts` at line 35.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Symbol.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+**Type Alias: `Symbol<Values>`**
+- **Structure:**
+  ```typescript
+  {
+      type: "Symbol";
+      values: Values;
+  }
+  ```
+
+- **Type Parameters:**
+  - `Values` extends `string` (default: `string`)
+
+- **Defined in:** `types/entry.ts:28`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldTypes.Text.html
+----------------------------------------
+
+### contentful.js - EntryFieldTypes
+
+#### Type Alias: `Text<Values>`
+```typescript
+type Text<Values extends string = string> = {
+    type: "Text";
+    values: Values;
+};
+```
+- **Type Parameters:**
+  - `Values`: A generic type that extends `string`, defaulting to `string`.
+- **Defined in:** `types/entry.ts:29`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Array.html
+----------------------------------------
+
+### contentful.js - EntryFields Type Alias
+
+**Type Alias:** `EntryFields`  
+**Definition:** `Array<Item>`  
+**Type Parameters:**  
+- `Item` extends:
+  - `EntryFields.Symbol`
+  - `EntryFields.AssetLink`
+  - `EntryFields.EntryLink<EntrySkeletonType>`
+
+**Location:** Defined in `types/entry.ts:83`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.AssetLink.html
+----------------------------------------
+
+**contentful.js - EntryFields**
+
+**Type Alias: AssetLink**
+- **Definition Location:** types/entry.ts:81
+
+**Components:**
+- **Asset**
+- **Link**: Represents a connection to an Asset.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Boolean.html
+----------------------------------------
+
+**contentful.js - EntryFields**
+
+**Type Alias: Boolean**
+- **Definition**: Represents a boolean value.
+- **Type**: `boolean`
+- **Location**: Defined in `types/entry.ts` at line 73.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Date.html
+----------------------------------------
+
+**API Method: EntryFields.Date**
+
+- **Type Alias**: `Date`
+- **Format**: 
+  ```
+  YYYY-MM-DDTHH:MM:SSZ
+  ```
+- **Defined in**: `types/entry.ts:72`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.EntryLink.html
+----------------------------------------
+
+### contentful.js API Overview
+
+#### EntryFields
+- Represents fields in a Contentful entry.
+
+#### EntryLink
+- Type Alias: `EntryLink<EntrySkeleton>`
+- Defines a link to an entry of type `EntrySkeleton`.
+
+#### Entry
+- Type: `Entry<EntrySkeleton>`
+- Type Parameters: 
+  - `EntrySkeleton`: Extends `EntrySkeletonType`
+- Defined in: `types/entry.ts:80`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Integer.html
+----------------------------------------
+
+**API Method: EntryFields.Integer**
+
+- **Type Alias**: `Integer<Values>`
+- **Type Parameters**:
+  - `Values`: Extends `number`, default is `number`.
+  
+- **Defined in**: `types/entry.ts:70`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Link.html
+----------------------------------------
+
+### contentful.js - EntryFields
+
+**Type Alias:** `Link<EntrySkeleton>`
+
+**Description:** Represents a link to either an asset or an entry.
+
+**Type Parameters:**
+- `EntrySkeleton`: Extends `EntrySkeletonType`.
+
+**Defined in:** `types/entry.ts:82`
+
+**Possible Link Types:**
+- `EntryFields.AssetLink`
+- `EntryFields.EntryLink<EntrySkeleton>`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Location.html
+----------------------------------------
+
+### contentful.js - EntryFields
+
+#### Location Type Alias
+```typescript
+type Location = {
+    lat: number; // Latitude
+    lon: number; // Longitude
+}
+```
+*Defined in `types/entry.ts` at line 75.*
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Number.html
+----------------------------------------
+
+**API Method: EntryFields.Number**
+
+- **Type Alias**: `Number<Values>`
+- **Type Parameters**: 
+  - `Values`: extends `number` (default: `number`)
+- **Defined in**: `types/entry.ts:71`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Object.html
+----------------------------------------
+
+### contentful.js - EntryFields
+
+**Type Alias**: `EntryFields<Object<Data>>`
+
+**Type Parameters**:
+- `Data`: Can be one of the following types:
+  - `JsonObject`
+  - `JsonArray`
+  - `null`
+
+**Defined in**: `types/entry.ts:84`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.RichText.html
+----------------------------------------
+
+### contentful.js Documentation Summary
+
+**EntryFields**  
+- **Type Alias:** `RichText`  
+- **Definition:** `RichTextDocument`  
+- **Location:** `types/entry.ts:85`  
+
+This type alias represents a rich text document structure used within Contentful's API.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Symbol.html
+----------------------------------------
+
+**API Method: EntryFields**
+
+- **Type Alias**: `Symbol<Values>`
+- **Type Parameters**: 
+  - `Values` extends `string` (default: `string`)
+- **Defined in**: `types/entry.ts:68`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFields.Text.html
+----------------------------------------
+
+### contentful.js - EntryFields
+
+**Type Alias:** `Text<Values>`
+
+**Description:**  
+Represents a text field in Contentful entries.
+
+**Type Parameters:**  
+- `Values`: A generic type that extends `string` (default: `string`).
+
+**Defined in:** `types/entry.ts:69`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsEqualityFilter.html
+----------------------------------------
+
+### EntryFieldsEqualityFilter
+
+**Type Alias**: `EntryFieldsEqualityFilter<Fields, Prefix>`
+
+**Description**: This type alias represents equality filters for specific fields in an entry, allowing for searches based on exact matches.
+
+**Type Parameters**:
+- **Fields**: Extends `Record<string, EntryFieldType<EntrySkeletonType>>`
+- **Prefix**: Extends `string`
+
+**Defined In**: `types/query/equality.ts:45`
+
+**Usage**: 
+- Use `EntryFieldsEqualityFilter` to create conditional queries that filter entries based on exact field values.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsExistenceFilter.html
+----------------------------------------
+
+### EntryFieldsExistenceFilter
+
+**Type Alias:** `EntryFieldsExistenceFilter<Fields, Prefix>`
+
+**Description:** 
+Checks for the existence of specified fields in an entry.
+
+**Type Parameters:**
+- `Fields`: Extends `FieldsType`
+- `Prefix`: Extends `string`
+
+**Returns:** 
+`ConditionalFixedQueries<Fields, EntryFieldType<EntrySkeletonType> | undefined, boolean, Prefix, "[exists]">`
+
+**Defined In:** `types/query/existence.ts:26`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsFullTextSearchFilters.html
+----------------------------------------
+
+### contentful.js - EntryFieldsFullTextSearchFilters
+
+**Type Alias:** `EntryFieldsFullTextSearchFilters<Fields, Prefix>`
+
+**Description:**  
+This type alias represents conditional fixed queries for full-text search within specified fields of an entry.
+
+**Parameters:**
+- `Fields`: Extends `FieldsType`
+- `Prefix`: Extends `string`
+
+**Method:**
+- `match`: Performs a full-text search in the provided fields of an entry.
+
+**Defined in:** `types/query/search.ts:33`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsInequalityFilter.html
+----------------------------------------
+
+### EntryFieldsInequalityFilter
+
+**Type Alias:** `EntryFieldsInequalityFilter<Fields, Prefix>`
+
+**Description:**  
+An inequality filter for specified fields of an entry, used to exclude matching items.
+
+**Type Parameters:**
+- `Fields`: Extends `Record<string, EntryFieldType<EntrySkeletonType>>`
+- `Prefix`: Extends `string`
+
+**Related Type:**  
+`EntryFieldsConditionalQueries<Fields, SupportedEntryFieldTypes, Prefix, "[ne]">`
+
+**Defined in:**  
+`types/query/equality.ts:67`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsQueries.html
+----------------------------------------
+
+### contentful.js - EntryFieldsQueries
+
+**Type Alias:** `EntryFieldsQueries<Fields>`
+
+**Description:** Represents all queries applicable to entry fields.
+
+**Possible Queries:**
+- `EntrySelectFilterWithFields<Fields>`
+- `EntryOrderFilterWithFields<Fields>`
+- `EntryFieldsExistenceFilter<Fields, "fields">`
+- `EntryFieldsEqualityFilter<Fields, "fields">`
+- `EntryFieldsInequalityFilter<Fields, "fields">`
+- `EntryFieldsFullTextSearchFilters<Fields, "fields">`
+- `EntryFieldsSubsetFilters<Fields, "fields">`
+- `EntryFieldsSetFilter<Fields, "fields">`
+- `LocationSearchFilters<Fields, "fields">`
+- `EntryFieldsRangeFilters<Fields, "fields">`
+- `ReferenceSearchFilters<Fields, "fields">`
+
+**Type Parameters:**
+- `Fields`: Extends `FieldsType`, representing the shape of entry fields used for dynamic key calculations.
+
+**Defined in:** `types/query/query.ts:86`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsRangeFilters.html
+----------------------------------------
+
+### contentful.js - EntryFieldsRangeFilters
+
+**Type Alias:** `EntryFieldsRangeFilters<Fields, Prefix>`
+
+**Description:**  
+Defines range operators applicable to date and number fields in an entry.
+
+**Type Parameters:**
+- **Fields:** Extends `Record<string, EntryFieldType<EntrySkeletonType>>`
+- **Prefix:** Extends `string`
+
+**Defined in:** `types/query/range.ts:35`
+
+### Summary
+`EntryFieldsRangeFilters` allows for conditional queries on entry fields, specifically for date and number types, utilizing range filters.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsSetFilter.html
+----------------------------------------
+
+### EntryFieldsSetFilter
+
+**Type Alias:** `EntryFieldsSetFilter<Fields, Prefix>`
+
+**Description:** Matches multiple values in specified fields of an entry.
+
+**Type Parameters:**
+- **Fields:** Extends `Record<string, EntryFieldType<any>>`
+- **Prefix:** Extends `string`
+
+**Defined in:** `types/query/set.ts:15`
+
+**Related Documentation:** See official documentation for further details.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryFieldsSubsetFilters.html
+----------------------------------------
+
+### contentful.js - EntryFieldsSubsetFilters
+
+**Type Alias:** `EntryFieldsSubsetFilters<Fields, Prefix>`
+
+**Description:**  
+Subset filters for inclusion and exclusion in specified fields of an entry.
+
+**Type Parameters:**
+- **Fields:** Extends `Record<string, EntryFieldType<any>>`
+- **Prefix:** Extends `string`
+
+**Related Documentation:**
+- Inclusion documentation
+- Exclusion documentation
+
+**Defined in:** `types/query/subset.ts:45`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryLink.html
+----------------------------------------
+
+### contentful.js - EntryLink
+
+**Type Alias:** `EntryLink`
+
+**Definition:** 
+- `EntryLink` can be either:
+  - `Link<"Entry">`
+  - `ResourceLink`
+
+**Description:** 
+- Represents a link to an Entry resource.
+
+**Location:** 
+- Defined in `types/link.ts` at line 60.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryOrderFilter.html
+----------------------------------------
+
+### EntryOrderFilter Type Alias
+
+**Definition**: 
+```typescript
+type EntryOrderFilter = {
+    order?: (OrderFilterPaths<EntrySys, "sys"> | "sys.contentType.sys.id" | "-sys.contentType.sys.id")[];
+}
+```
+
+**Description**: Represents the order in an entry.
+
+**File Reference**: Defined in `types/query/order.ts` at line 58. 
+
+**Note**: For further details, refer to the official documentation.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryOrderFilterWithFields.html
+----------------------------------------
+
+### EntryOrderFilterWithFields Type Alias
+
+**Definition**: 
+`EntryOrderFilterWithFields<Fields>` is a type alias that specifies the order for fields in an entry.
+
+**Structure**:
+```typescript
+{
+    order?: (
+        | `fields.${keyof ConditionalPick<Fields, SupportedEntryFieldTypes> & string}`
+        | `-fields.${keyof ConditionalPick<Fields, SupportedEntryFieldTypes> & string}`
+        | `fields.${keyof ConditionalPick<Fields, SupportedLinkTypes> & string}.sys.id`
+        | `-fields.${keyof ConditionalPick<Fields, SupportedLinkTypes> & string}.sys.id`
+        | OrderFilterPaths<EntrySys, "sys">
+        | "sys.contentType.sys.id"
+        | "-sys.contentType.sys.id"
+    )[];
+}
+```
+
+**Type Parameters**:
+- **Fields**: Extends `Record<string, EntryFieldType<EntrySkeletonType>>`.
+
+**File Reference**: Defined in `types/query/order.ts:39`. 
+
+**Purpose**: To define the order of fields for querying entries in Contentful.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntryQueries.html
+----------------------------------------
+
+### contentful.js - EntryQueries
+
+**Type Alias: `EntryQueries<Modifiers>`**
+
+**Description:**  
+Defines search parameters for single entry methods.
+
+**Type Parameters:**
+- `Modifiers`: Extends `ChainModifiers`. Automatically set when using client chain modifiers.
+
+**Details:**
+- Omitted properties from `FixedQueryOptions` except for `"query"`.
+- If `Modifiers` includes `"WITH_ALL_LOCALES"`, an empty object `{}` is used; otherwise, a `LocaleOption` is included.
+
+**Defined in:**  
+`types/query/query.ts:130`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntrySelectFilter.html
+----------------------------------------
+
+### EntrySelectFilter Type Alias
+
+**Definition**: 
+```typescript
+type EntrySelectFilter = {
+    select?: (
+        | "sys"
+        | "fields"
+        | "metadata"
+        | SelectFilterPaths<EntrySys, "sys">
+        | SelectFilterPaths<Metadata, "metadata">
+    )[];
+}
+```
+
+**Description**: 
+Used to specify which fields to select in an entry.
+
+**Location**: 
+Defined in `types/query/select.ts` at line 32.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntrySelectFilterWithFields.html
+----------------------------------------
+
+### EntrySelectFilterWithFields Type Alias
+
+**Definition:**
+```typescript
+type EntrySelectFilterWithFields<Fields extends FieldsType> = {
+    select?: (
+        | "sys"
+        | "fields"
+        | "metadata"
+        | SelectFilterPaths<EntrySys, "sys">
+        | SelectFilterPaths<Fields, "fields">
+        | SelectFilterPaths<Metadata, "metadata">
+    )[];
+}
+```
+
+**Description:**
+- This type alias allows selection of specific fields from an entry, including system, fields, and metadata.
+
+**Parameters:**
+- `Fields`: A generic type that extends `FieldsType`.
+
+**Location:**
+- Defined in `types/query/select.ts` at line 16.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EntrySkeletonType.html
+----------------------------------------
+
+### EntrySkeletonType
+
+**Type Alias:** `EntrySkeletonType<Fields, Id>`
+
+**Structure:**
+```typescript
+{
+    contentTypeId: Id;
+    fields: Fields;
+}
+```
+
+**Type Parameters:**
+- **Fields**: Extends `FieldsType` (default: `FieldsType`)
+- **Id**: Type is `string`
+
+**Location:** Defined in `types/query/util.ts:12`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EnvironmentLink.html
+----------------------------------------
+
+### EnvironmentLink Type Alias
+
+**Type**: `Link<"Environment">`  
+**Description**: Represents a link to an Environment type in Contentful.
+
+**Defined in**: `types/link.ts:48`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/EqualityFilter.html
+----------------------------------------
+
+### EqualityFilter Type Alias
+
+**Definition:**  
+`EqualityFilter<Fields, Prefix>`  
+A type alias for creating equality filters in specified fields to search for exact matches.
+
+**Type Parameters:**  
+- `Fields`: The fields to apply the filter.
+- `Prefix`: A string that extends the base type.
+
+**Usage:**  
+This type is part of `ConditionalQueries<Fields, SupportedTypes, Prefix, "">`.
+
+**Location:**  
+Defined in `types/query/equality.ts` at line 33.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ExistenceFilter.html
+----------------------------------------
+
+### ExistenceFilter Type Alias
+
+**Definition**:  
+`ExistenceFilter<Fields, Prefix>`  
+A conditional query filter used to check for the existence of specified fields in Contentful.
+
+**Type Parameters**:  
+- **Fields**: Extends `FieldsType`  
+- **Prefix**: Extends `string`
+
+**Returns**:  
+`ConditionalFixedQueries<Fields, EntryField<EntrySkeletonType<Fields>> | AssetFile | AssetDetails | undefined, boolean, Prefix, "[exists]">`
+
+**Location**:  
+Defined in `types/query/existence.ts:10`
+
+**Description**:  
+This filter checks if the provided fields exist.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/FieldsType.html
+----------------------------------------
+
+**contentful.js**
+
+**FieldsType**  
+- **Type Alias**: `FieldsType`  
+- **Type**: `Record<string, any>`  
+- **Defined in**: `types/query/util.ts:7`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/FixedLinkOptions.html
+----------------------------------------
+
+### FixedLinkOptions Type Alias
+
+**Definition:**
+```typescript
+type FixedLinkOptions = {
+    links_to_asset?: string;
+    links_to_entry?: string;
+};
+```
+
+**Location:** Defined in `types/query/query.ts` at line 45.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/FixedPagedOptions.html
+----------------------------------------
+
+### FixedPagedOptions Type Alias
+
+**Definition:**
+```typescript
+type FixedPagedOptions = {
+    limit?: number;
+    skip?: number;
+}
+```
+
+**File Location:** `types/query/query.ts:35`
+
+**Description:** 
+- `limit`: Optional number specifying the maximum number of items to return.
+- `skip`: Optional number specifying the number of items to skip before starting to collect the result set.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/FixedQueryOptions.html
+----------------------------------------
+
+**FixedQueryOptions Type Alias**
+
+```typescript
+type FixedQueryOptions = {
+    include?: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
+    query?: string;
+}
+```
+
+- **include**: Optional parameter specifying the level of linked entries to include (0-10).
+- **query**: Optional string for custom query filtering.
+
+*Defined in types/query/query.ts:40*
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/FullTextSearchFilters.html
+----------------------------------------
+
+### contentful.js - FullTextSearchFilters
+
+**Type Alias:** `FullTextSearchFilters<Fields, Prefix>`
+
+**Description:**  
+Represents conditional fixed queries for full text search in specified fields.
+
+**Parameters:**
+- **Fields**: Extends `FieldsType`
+- **Prefix**: Extends `string`
+
+**Functionality:**  
+- **match**: Performs full text search in the provided fields.
+
+**Defined in:** `types/query/search.ts:23`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/GetGlobalOptions.html
+----------------------------------------
+
+### API Method: GetGlobalOptions
+
+**Type Alias:** `GetGlobalOptions`
+
+**Definition:**
+```typescript
+(globalOptions?: GlobalOptionsParams) => Required<GlobalOptionsParams>
+```
+
+**File:** `create-global-options.ts:14`
+
+**Description:** This method retrieves global options, accepting an optional parameter of type `GlobalOptionsParams` and returning the required global options.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/InequalityFilter.html
+----------------------------------------
+
+### contentful.js - InequalityFilter
+
+**Type Alias:** `InequalityFilter<Fields, Prefix>`
+
+**Description:**  
+InequalityFilter is used to exclude items that match specified criteria in given fields.
+
+**Type Parameters:**  
+- `Fields`: The fields to apply the filter on.  
+- `Prefix`: A string that serves as a prefix.
+
+**Definition Location:**  
+Defined in `types/query/equality.ts` at line 55.
+
+**Related Type:**  
+- `ConditionalQueries<Fields, SupportedTypes, Prefix, "[ne]">`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/LinkType.html
+----------------------------------------
+
+### contentful.js
+
+#### LinkType
+**Type Alias:** `LinkType`
+
+**Possible Values:**
+- `"Space"`
+- `"ContentType"`
+- `"Environment"`
+- `"Entry"`
+- `"Tag"`
+- `"User"`
+- `"Asset"`
+- `"TaxonomyConcept"`
+
+**Defined in:** `types/link.ts:6`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/LocaleCode.html
+----------------------------------------
+
+**LocaleCode Type Alias**
+
+- **Type**: `string`
+- **Defined in**: `types/locale.ts:7`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/LocaleCollection.html
+----------------------------------------
+
+### contentful.js
+
+**LocaleCollection**  
+- **Type Alias**: `LocaleCollection`  
+- **Description**: A collection of locales.  
+- **Type**: `ContentfulCollection<Locale>`  
+- **Defined in**: `types/locale.ts:34`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/LocaleOption.html
+----------------------------------------
+
+### contentful.js
+
+**LocaleOption**  
+**Type Alias:** `LocaleOption`  
+**Definition:**  
+```typescript
+{ 
+    locale?: string; 
+}
+```  
+**Location:** `types/query/query.ts:50`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/LocationSearchFilters.html
+----------------------------------------
+
+### contentful.js - LocationSearchFilters
+
+**Type Alias:** `LocationSearchFilters<Fields, Prefix>`
+
+**Description:** Combines `ProximitySearchFilter` and `BoundingObjectSearchFilter` for location searches.
+
+**Type Parameters:**
+- `Fields`: Represents the fields used in the search.
+- `Prefix`: Extends `string`.
+
+**Defined in:** `types/query/location.ts:53`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/Metadata.html
+----------------------------------------
+
+### contentful.js - Metadata Type Alias
+
+**Type Alias: Metadata**
+```typescript
+{
+    concepts?: { sys: TaxonomyConceptLink }[];
+    tags: { sys: TagLink }[];
+}
+```
+
+**Description:**
+- **concepts**: Optional array of taxonomy concepts.
+- **tags**: Required array of tags.
+
+**Defined in:** `types/metadata.ts:7`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/MetadataConceptsQueries.html
+----------------------------------------
+
+### MetadataConceptsQueries Type Alias
+
+**Description**: This type alias defines various conditional queries applicable to metadata concepts fields.
+
+#### Queries:
+1. **ConditionalFixedQueries**
+   - **Parameters**:
+     - `Pick<Metadata, "concepts">`
+     - `any`
+     - `boolean`
+     - `"metadata"`
+     - `"[exists]"`
+   
+2. **ConditionalListQueries** (multiple instances):
+   - **Parameters**:
+     - `Pick<TaxonomyConceptLink, "id">`
+     - `any`
+     - `"metadata.concepts.sys"`
+     - `"[all]"`
+   - **Parameters**:
+     - `Pick<TaxonomyConceptLink, "id">`
+     - `any`
+     - `"metadata.concepts.sys"`
+     - `"[in]"`
+   - **Parameters**:
+     - `Pick<TaxonomyConceptLink, "id">`
+     - `any`
+     - `"metadata.concepts.sys"`
+     - `"[nin]"`
+   - **Parameters**:
+     - `{ descendants: string; }`
+     - `any`
+     - `"metadata.concepts"`
+     - `"[in]"`
+
+**Location**: Defined in `types/query/query.ts` at line 75.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/MetadataTagsQueries.html
+----------------------------------------
+
+### MetadataTagsQueries Type Alias
+
+**Definition**: Represents queries applicable to metadata tags fields.
+
+**Type Structure**:
+```typescript
+MetadataTagsQueries =
+    | ConditionalFixedQueries<Pick<Metadata, "tags">, any, boolean, "metadata", "[exists]">
+    | ConditionalListQueries<Pick<TagLink, "id">, any, "metadata.tags.sys", "[all]">
+    | ConditionalListQueries<Pick<TagLink, "id">, any, "metadata.tags.sys", "[in]">
+    | ConditionalListQueries<Pick<TagLink, "id">, any, "metadata.tags.sys", "[nin]">
+```
+
+**Location**: Defined in `types/query/query.ts:66`. 
+
+This type alias consolidates various query conditions for handling metadata tags efficiently.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/OrderFilterPaths.html
+----------------------------------------
+
+### OrderFilterPaths Type Alias
+
+**Definition:**
+`OrderFilterPaths<Fields, Prefix>` is a type alias that constructs a string union for filtering paths based on the provided `Fields` and `Prefix`.
+
+**Structure:**
+```
+`${Prefix}.${keyof ConditionalPick<Fields, SupportedTypes> & string}`
+| `-${Prefix}.${keyof ConditionalPick<Fields, SupportedTypes> & string}`
+```
+
+**Type Parameters:**
+- **Fields**: Extends `FieldsType`
+- **Prefix**: Extends `string`
+
+**Location:**
+Defined in `types/query/order.ts` at line 30.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ProximitySearchFilter.html
+----------------------------------------
+
+### ProximitySearchFilter
+
+**Type Alias:** `ProximitySearchFilter<Fields, Prefix>`
+
+**Description:** 
+A filter for proximity-based location searches within specified fields.
+
+**Extends:** 
+`BaseLocationFilter<Fields, Types, ProximitySearchFilterInput, Prefix, "near">`
+
+**Key Property:**
+- `near`: Enables location proximity search in designated fields.
+
+**Type Parameters:**
+- `Fields`: The fields to search within.
+- `Prefix`: A string that specifies the prefix.
+
+**Defined in:** 
+`types/query/location.ts:26`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ProximitySearchFilterInput.html
+----------------------------------------
+
+**ProximitySearchFilterInput**  
+- **Type Alias**: `ProximitySearchFilterInput`  
+- **Definition**: `ProximitySearchFilterInput` is defined as an array of two numbers: `[number, number]`.  
+- **File Location**: `types/query/location.ts:6`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/RangeFilters.html
+----------------------------------------
+
+### contentful.js - RangeFilters
+
+**Type Alias:** `RangeFilters<Fields, Prefix>`
+
+**Description:**  
+Represents conditional queries for range operators applicable to date and number fields.
+
+**Type Parameters:**
+- **Fields**: Type of fields being queried.
+- **Prefix**: String that extends the base type.
+
+**Defined in:** `types/query/range.ts:23`
+
+**Related Types:**  
+- `ConditionalQueries<Fields, SupportedTypes, Prefix, [${RangeFilterTypes}]>`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ReferenceSearchFilters.html
+----------------------------------------
+
+### contentful.js - ReferenceSearchFilters
+
+**Type Alias:** `ReferenceSearchFilters<Fields, Prefix>`
+
+**Description:**  
+Defines search filters for references in specified fields.
+
+**Type Parameters:**
+- `Fields`: The fields to search within.
+- `Prefix`: A string prefix for the field names.
+
+**Structure:**
+```typescript
+{
+    [FieldName in keyof ConditionalPick<Fields, SupportedTypes> as `${Prefix}.${string & FieldName}.${string}`]?: any
+}
+```
+
+**Usage:**  
+This type allows for dynamic search filtering on references based on the provided fields and prefix.
+
+**Defined in:** `types/query/reference.ts:14`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ResolvedAssetLink.html
+----------------------------------------
+
+### ResolvedAssetLink Type Alias
+
+**Definition:**
+`ResolvedAssetLink<Modifiers, Locales>` represents a resolved link to an asset, with behavior influenced by client configuration options.
+
+**Behavior Based on Client Configuration:**
+- If `withoutLinkResolution` is enabled, linked entities remain unresolved.
+- If `withoutUnresolvableLinks` is enabled, non-resolvable linked entities are excluded.
+
+**Type Parameters:**
+- **Modifiers**: Extends `ChainModifiers`, automatically set when using client chain modifiers.
+- **Locales**: Extends `LocaleCode`.
+
+**Return Types:**
+- If `ChainModifiers` is used: 
+  - `Asset<Modifiers, Locales> | UnresolvedLink<"Asset"> | undefined`
+- If `WITHOUT_LINK_RESOLUTION` is set:
+  - `UnresolvedLink<"Asset">`
+- If `WITHOUT_UNRESOLVABLE_LINKS` is set:
+  - `Asset<Modifiers, Locales> | undefined`
+- Otherwise:
+  - `Asset<Modifiers, Locales> | UnresolvedLink<"Asset">`
+
+This type alias allows for flexible handling of asset links based on the client's configuration settings.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ResolvedEntryLink.html
+----------------------------------------
+
+### ResolvedEntryLink Type Alias
+
+**Definition**: 
+`ResolvedEntryLink<Modifiers, Locales, LinkedEntry>`
+
+**Description**: 
+Represents a single resolved link to another entry within the same space. The behavior of the link resolution depends on the client configuration options.
+
+**Client Configuration Options**:
+- **withoutLinkResolution**: Returns linked entities as objects without resolving them.
+- **withoutUnresolvableLinks**: Excludes non-resolvable linked entities from the response.
+
+### Type Parameters
+- **Modifiers**: Extends `ChainModifiers`. Used to configure the client automatically.
+- **Locales**: Extends `LocaleCode`. Defines locale keys for entry field values if using the `allLocales` modifier.
+- **LinkedEntry**: Extends `EntrySkeletonType`. Represents the shape of the linked entry for dynamic key calculations.
+
+### Return Types
+- If `ChainModifiers` is used:
+  - `Entry<LinkedEntry, Modifiers, Locales>`
+  - `UnresolvedLink<"Entry">`
+  - `undefined`
+  
+- If `withoutLinkResolution` is included:
+  - `UnresolvedLink<"Entry">`
+  
+- If `withoutUnresolvableLinks` is included:
+  - `Entry<LinkedEntry, Modifiers, Locales>`
+  - `undefined`
+  
+- Otherwise:
+  - `Entry<LinkedEntry, Modifiers, Locales>`
+  - `UnresolvedLink<"Entry">`
+
+**Defined in**: `types/entry.ts:179`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ResolvedEntryResourceLink.html
+----------------------------------------
+
+### ResolvedEntryResourceLink Type Alias
+
+**Definition:**  
+`ResolvedEntryResourceLink<Modifiers, Locales, LinkedEntry>`
+
+**Description:**  
+Represents a single resolved reference link to another entry in a different space. The behavior of the returned type depends on the client configuration options.
+
+**Key Behavior:**
+- If `withoutLinkResolution` is set, linked entities are returned as objects without resolution.
+- If `withoutUnresolvableLinks` is set, non-resolvable linked entities are excluded.
+
+**Type Parameters:**
+- **Modifiers**: Extends `ChainModifiers`. Used to configure the client automatically.
+- **Locales**: Extends `LocaleCode`. Defines locale keys for entry field values when using the `allLocales` modifier.
+- **LinkedEntry**: Extends `EntrySkeletonType`. Represents the shape of the linked entry for dynamic key calculations.
+
+**Defined in:**  
+`types/entry.ts:203`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ResolvedField.html
+----------------------------------------
+
+### ResolvedField Type Alias
+
+**Type Alias**: `ResolvedField<Field, Modifiers, Locales>`
+
+**Description**: Represents a collection or single resolved link to another resource.
+
+**Type Parameters**:
+- **Field**: Extends `EntryFieldTypes.Array<infer Item>`; defines the shape of an entry for dynamic keys.
+- **Modifiers**: Extends `ChainModifiers`; automatically set when using client chain modifiers.
+- **Locales**: Extends `LocaleCode` (default: `LocaleCode`); defines locale keys for entry field values when using the `allLocales` modifier.
+
+**Defined in**: `types/entry.ts:267`
+
+### Example Usage
+```javascript
+const resolvedField: ResolvedField<MyFieldType, MyModifiers, MyLocales>;
+```
+
+### Note
+Refer to the documentation for further details.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/ResolvedLink.html
+----------------------------------------
+
+### ResolvedLink Type Alias
+
+**Definition**: 
+`ResolvedLink<Field, Modifiers, Locales>` is a type alias that resolves links to other resources based on the type of link provided.
+
+**Type Parameters**:
+- **Field**: Must extend `EntryFieldTypes.EntryLink<infer LinkedEntry>`. Represents the shape of an entry used to calculate dynamic keys.
+- **Modifiers**: Extends `ChainModifiers`. Used to configure the client, set automatically when using client chain modifiers.
+- **Locales**: Extends `LocaleCode`. Defines locale keys for entry field values when using the `allLocales` modifier.
+
+**Resolved Types**:
+- If `Field` is an `EntryLink`: Returns `ResolvedEntryLink<Modifiers, Locales, LinkedEntry>`.
+- If `Field` is an `EntryResourceLink`: Returns `ResolvedEntryResourceLink<Modifiers, Locales, LinkedEntry>`.
+- If `Field` is an `ExternalResourceLink`: Returns `{ sys: ResourceLink<string>; }`.
+- If `Field` is an `AssetLink`: Returns `ResolvedAssetLink<Modifiers, Locales>`.
+- Otherwise, returns `BaseFieldMap<Field>`.
+
+**Location**: Defined in `types/entry.ts:244`. 
+
+This type alias provides a structured way to handle various types of links in the Contentful API, ensuring that the correct resolved type is returned based on the link type.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SelectFilterPaths.html
+----------------------------------------
+
+### API Method: SelectFilterPaths
+
+**Type Alias:** `SelectFilterPaths<Fields, Prefix>`
+
+**Definition:**
+```typescript
+`${Prefix}.${keyof Fields & string}`
+```
+
+**Type Parameters:**
+- **Fields**: Extends `FieldsType`
+- **Prefix**: Extends `string`
+
+**Location:** Defined in `types/query/select.ts:6`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SpaceLink.html
+----------------------------------------
+
+### contentful.js - SpaceLink
+
+**Type Alias:** `SpaceLink`
+
+**Description:**  
+Represents a link to a "Space".
+
+**Link Type:**  
+`Link<"Space">`
+
+**Defined In:**  
+`types/link.ts:36`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SubsetFilters.html
+----------------------------------------
+
+### contentful.js - SubsetFilters
+
+**Type Alias:** `SubsetFilters<Fields, Prefix>`
+
+**Description:**  
+Subset filters for inclusion and exclusion in specified fields.
+
+**Type Parameters:**
+- `Fields`: The fields to filter.
+- `Prefix`: A string that prefixes the filter.
+
+**Related Documentation:**  
+- Inclusion documentation
+- Exclusion documentation
+
+**Defined In:**  
+`types/query/subset.ts:32`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SupportedEntryFieldTypes.html
+----------------------------------------
+
+### SupportedEntryFieldTypes
+
+**Type Alias**: `SupportedEntryFieldTypes`
+
+**Definition**: 
+```typescript
+type SupportedEntryFieldTypes = 
+    | EntryFieldTypes.Symbol
+    | EntryFieldTypes.Integer
+    | EntryFieldTypes.Number
+    | EntryFieldTypes.Date
+    | EntryFieldTypes.Boolean
+    | EntryFieldTypes.Location
+    | undefined;
+```
+
+**Location**: Defined in `types/query/order.ts:16`.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SupportedLinkTypes.html
+----------------------------------------
+
+### contentful.js
+
+#### SupportedLinkTypes
+**Type Alias:** `SupportedLinkTypes`
+
+**Definition:**
+```typescript
+SupportedLinkTypes = EntryFieldTypes.AssetLink | EntryFieldTypes.EntryLink<any> | undefined
+```
+
+**Location:** Defined in `types/query/order.ts:25`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SupportedTypes.html
+----------------------------------------
+
+### SupportedTypes Type Alias
+
+**Definition**: `SupportedTypes` is a type alias that includes various entry field types.
+
+**Supported Types**:
+- `EntryFields.Symbol`
+- `EntryFields.Integer`
+- `EntryFields.Number`
+- `EntryFields.Date`
+- `EntryFields.Boolean`
+- `EntryFields.Location`
+- `undefined`
+
+**Location**: Defined in `types/query/order.ts` at line 7.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SyncEntities.html
+----------------------------------------
+
+### SyncEntities Type Alias
+
+**Definition:**  
+`SyncEntities` is a type alias that encompasses various entities in the Contentful sync process.
+
+**Entities Included:**
+- `Entry<EntrySkeletonType>`
+- `Asset`
+- `DeletedEntry`
+- `DeletedAsset`
+
+**Location:**  
+Defined in `types/sync.ts` at line 73.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SyncOptions.html
+----------------------------------------
+
+### SyncOptions Type Alias
+
+**Definition:**
+```typescript
+type SyncOptions = {
+    paginate?: boolean; // Default: true
+}
+```
+
+**Description:**
+- `paginate`: Optional boolean parameter that controls pagination. Default value is `true`.
+
+**Location:**
+- Defined in `types/sync.ts` at line 11.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SyncPageQuery.html
+----------------------------------------
+
+**SyncPageQuery Type Alias**
+
+- **Definition**: `SyncPageQuery` is a type alias for `SyncQuery` with an optional property.
+- **Structure**:
+  - **sync_token**: `string` (optional)
+
+**Location**: Defined in `types/sync.ts` at line 34.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SyncPageResponse.html
+----------------------------------------
+
+### SyncPageResponse Type Alias
+
+**Definition:**
+```typescript
+type SyncPageResponse = {
+    items: SyncEntities[];
+    nextPageToken?: string;
+    nextSyncToken?: string;
+}
+```
+
+**Location:** `types/sync.ts:48`
+
+**Key Points:**
+- `items`: An array of `SyncEntities`.
+- `nextPageToken`: Optional string for pagination.
+- `nextSyncToken`: Optional string for synchronization tracking.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SyncQuery.html
+----------------------------------------
+
+### SyncQuery Type Alias
+
+**Definition:**
+```typescript
+type SyncQuery = {
+    initial?: true;
+    limit?: number;
+    nextPageToken?: string;
+    nextSyncToken?: string;
+} & (
+    { content_type: string; type: "Entry"; } |
+    { type?: "Asset" | "Entry" | "Deletion" | "DeletedAsset" | "DeletedEntry"; }
+);
+```
+
+**Key Points:**
+- `initial`: Optional boolean indicating if this is the initial sync.
+- `limit`: Optional number specifying the maximum number of items to return.
+- `nextPageToken`: Optional string for pagination.
+- `nextSyncToken`: Optional string for syncing changes.
+- Supports filtering by `content_type` for entries or by `type` for various asset and entry states.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SyncResponse.html
+----------------------------------------
+
+### SyncResponse Type Alias
+
+**Definition:**
+```typescript
+type SyncResponse = {
+    items: SyncEntities[];
+    nextPageUrl?: string;
+    nextSyncUrl?: string;
+}
+```
+
+**Location:** Defined in `types/sync.ts` at line 39.
+
+**Key Points:**
+- `items`: An array of `SyncEntities`.
+- `nextPageUrl`: Optional string for the next page URL.
+- `nextSyncUrl`: Optional string for the next sync URL.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/SysQueries.html
+----------------------------------------
+
+### contentful.js - SysQueries
+
+**Type Alias:** `SysQueries<Sys>`
+
+**Description:**  
+Represents all queries applicable to system (sys) fields.
+
+**Type Parameters:**  
+- `Sys`: Extends `FieldsType`.
+
+**Filters Included:**
+- `ExistenceFilter<Sys, "sys">`
+- `EqualityFilter<Sys, "sys">`
+- `InequalityFilter<Sys, "sys">`
+- `SubsetFilters<Sys, "sys">`
+- `RangeFilters<Sys, "sys">`
+
+**Defined in:** `types/query/query.ts:57`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/Tag.html
+----------------------------------------
+
+### Tag Type Alias
+
+**Type Alias:** `Tag`
+
+**Structure:**
+```javascript
+{
+    name: string;  // Name of the content tag
+    sys: TagSys;   // System metadata for the tag
+}
+```
+
+**Description:** Represents a single content tag definition.
+
+**Reference:** See CDA documentation on Content Tags.
+
+**Defined in:** `types/tag.ts:22`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TagCollection.html
+----------------------------------------
+
+### contentful.js - TagCollection
+
+**Type Alias:** `TagCollection`
+
+**Description:**  
+A collection of tags, represented as a `ContentfulCollection<Tag>`.
+
+**Defined in:** `types/tag.ts:31`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TagLink.html
+----------------------------------------
+
+### contentful.js - TagLink
+
+**Type Alias:** `TagLink`
+
+**Description:** Represents a link to a Tag.
+
+**Link Type:** `Link<"Tag">`
+
+**Defined in:** `types/link.ts:66`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TagNameFilters.html
+----------------------------------------
+
+### TagNameFilters Type Alias
+
+**Definition:**
+```typescript
+type TagNameFilters = {
+    name?: string;
+    name[exists]?: boolean;
+    name[in]?: string[];
+    name[match]?: string;
+    name[ne]?: string;
+    name[nin]?: string[];
+}
+```
+
+**Location:** Defined in `types/query/query.ts:202`
+
+**Key Points:**
+- `name`: Optional string filter.
+- `name[exists]`: Optional boolean indicating if the name exists.
+- `name[in]`: Optional array of strings for inclusion.
+- `name[match]`: Optional string for pattern matching.
+- `name[ne]`: Optional string for not equal filter.
+- `name[nin]`: Optional array of strings for exclusion.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TagOrderFilter.html
+----------------------------------------
+
+### TagOrderFilter Type Alias
+
+**Definition:**
+```typescript
+type TagOrderFilter = {
+    order?: (OrderFilterPaths<TagSys, "sys"> | "name" | "-name")[];
+};
+```
+
+**Description:**
+Represents the order in which tags are filtered.
+
+**Location:**
+Defined in `types/query/order.ts` at line 90.
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TagQueries.html
+----------------------------------------
+
+### TagQueries Type Alias
+
+**Description:**  
+`TagQueries` is a type alias that combines various filters and options for querying tags in Contentful.
+
+**Composition:**
+- **TagNameFilters**
+- **SysQueries**: Includes specific system fields from `TagSys`:
+  - `createdAt`
+  - `updatedAt`
+  - `visibility`
+  - `id`
+  - `type`
+- **TagOrderFilter**
+- **FixedPagedOptions**
+
+**Modifiers:**  
+Modifiers are chainable parameters used to configure the client, set automatically when using client chain modifiers.
+
+**Defined in:**  
+`types/query/query.ts:216`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TaxonomyConceptLink.html
+----------------------------------------
+
+### TaxonomyConceptLink
+
+**Type Alias:** `TaxonomyConceptLink`  
+**Description:** Represents a link to a "TaxonomyConcept".
+
+**Type Definition:**  
+```typescript
+Link<"TaxonomyConcept">
+```
+
+**Defined in:** `types/link.ts:78`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/TaxonomyOrderFilter.html
+----------------------------------------
+
+**TaxonomyOrderFilter Type Alias**
+
+```typescript
+type TaxonomyOrderFilter = {
+    order?: ("sys.createdAt" | "sys.updatedAt" | "prefLabel")[];
+};
+```
+
+**Definition Location:** `types/query/order.ts:94`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/UnresolvedLink.html
+----------------------------------------
+
+### contentful.js - UnresolvedLink Type Alias
+
+**Type Alias:** `UnresolvedLink<T>`
+
+**Description:** Represents an unresolved link field of a specific link type.
+
+**Type Parameters:**
+- `T`: Extends `LinkType`
+
+**Defined in:** `types/link.ts:30`
+
+----------------------------------------
+https://contentful.github.io/contentful.js/contentful/11.5.0/types/UserLink.html
+----------------------------------------
+
+### UserLink Type Alias
+
+**Type:** `UserLink`  
+**Definition:** `Link<"User">`  
+**Description:** Represents a link to a User type.
+
+**File Location:** `types/link.ts:72`
