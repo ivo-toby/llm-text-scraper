@@ -12,9 +12,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
-# Argument parsing
 parser = argparse.ArgumentParser(
-    description="Scrape structured documentation for AI training."
+    description="Scrape structured documentation for AI Code generation use."
 )
 parser.add_argument(
     "--base-url",
@@ -33,19 +32,16 @@ parser.add_argument(
 )
 args = parser.parse_args()
 
-# OpenAI API Key (Ensure this is set in your environment variables)
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
-BASE_URL = args.base_url.rstrip("/")  # Remove trailing slash if exists
+BASE_URL = args.base_url.rstrip("/")
 DOCS_ROOT = f"{BASE_URL}/"
 FILTER_PATH = args.filter_path.strip("/") if args.filter_path else ""
 OUTPUT_FILE = "llms-full.txt"
 TMP_DIR = "./tmp"
 
-# Ensure tmp directory exists
 os.makedirs(TMP_DIR, exist_ok=True)
 
-# Configure Selenium (Headless Chrome)
 chrome_options = Options()
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-gpu")
@@ -55,7 +51,6 @@ chrome_options.add_argument("--disable-dev-shm-usage")
 service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service, options=chrome_options)
 
-# Initialize OpenAI client
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
 
@@ -93,19 +88,18 @@ def fetch_page(url):
 
 
 def extract_text(soup, custom_selector=None):
-    """Extracts main documentation content dynamically with optional user-defined selector."""
+    """Extracts main documentation content with optional user-defined selector."""
     if not soup:
         return ""
 
-    # If a custom selector is provided, use it first
     if custom_selector:
         custom_content = soup.select_one(custom_selector)
         if custom_content:
             extracted_text = custom_content.get_text(separator="\n").strip()
-            if len(extracted_text) > 50:  # Avoid capturing empty or useless data
+            if len(extracted_text) > 50:
                 return extracted_text
 
-    # Default selectors for common documentation layouts
+    # Fallback selectors for extracting content from various doc layouts
     possible_selectors = [
         "article",  # Common in blogs and structured docs
         "div.col-content",  # Contentful-style docs
@@ -135,7 +129,7 @@ def extract_text(soup, custom_selector=None):
 
 
 def extract_links():
-    """Finds all dynamically loaded documentation links from the /docs page."""
+    """Finds all documentation links from the page."""
     print("🌐 Fetching dynamic links ...")
 
     driver.get(BASE_URL)  # Scrape from the provided base URL
@@ -161,6 +155,8 @@ def process_with_llm(text):
     - Extract and format API methods, parameters, and example code properly.
     - Ensure clarity, remove redundant or unnecessary text.
     - Format output to be easily understood by Large Language Models (LLMs).
+    - Compress output to be concise and informative, but still reduces the amount of tokens needed when used by a LLM
+    - Remove any unnecessary or redundant text.
 
     Raw documentation:
     {text}
@@ -196,14 +192,14 @@ def get_all_urls():
 
     filtered_urls.sort(key=lambda x: (x.count("/"), x))
 
-    with open(cache_file, "wb") as f:
-        pickle.dump(filtered_urls, f)
+    with open(cache_file, "wb") as cacheFile:
+        pickle.dump(filtered_urls, cacheFile)
 
     return filtered_urls
 
 
 def scrape_and_structure(urls):
-    """Scrapes and structures the documentation for better readability."""
+    """Scrapes and structures the documentation for better intepretation by AI Code generation tools."""
     structured_text = ""
 
     for url in urls:
@@ -212,12 +208,8 @@ def scrape_and_structure(urls):
             continue
 
         processed_text = process_with_llm(content)
-        section_title = (
-            url.replace(BASE_URL + f"/{FILTER_PATH}/", "").replace("-", " ").title()
-        )
 
         structured_text += f"\n\n{'-' * 40}\n"
-        structured_text += f"{section_title}\n"
         structured_text += f"{url}\n"
         structured_text += f"{'-' * 40}\n\n"
         structured_text += processed_text
