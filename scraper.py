@@ -24,7 +24,7 @@ parser.add_argument(
 )
 parser.add_argument(
     "--filter-path",
-    required=True,
+    required=False,
     help="Path filter to scrape specific sections (e.g., /docs/reference/)",
 )
 args = parser.parse_args()
@@ -34,7 +34,7 @@ OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 BASE_URL = args.base_url.rstrip("/")  # Remove trailing slash if exists
 DOCS_ROOT = f"{BASE_URL}/docs"
-FILTER_PATH = args.filter_path.strip("/")  # Remove leading/trailing slashes if exists
+FILTER_PATH = args.filter_path.strip("/") if args.filter_path else ""
 OUTPUT_FILE = "llms-full.txt"
 TMP_DIR = "./tmp"
 
@@ -96,15 +96,16 @@ def extract_text(soup):
 
 def extract_links():
     """Finds all dynamically loaded documentation links from the /docs page."""
-    print("🌐 Fetching dynamic links from /docs...")
-    driver.get(DOCS_ROOT)
-    time.sleep(3)
+    print("🌐 Fetching dynamic links ...")
+
+    driver.get(BASE_URL)  # Scrape from the provided base URL
+    time.sleep(2)
 
     links = set()
     elements = driver.find_elements(By.TAG_NAME, "a")
     for elem in elements:
         href = elem.get_attribute("href")
-        if href and href.startswith(BASE_URL + "/docs/"):
+        if href and href.startswith(BASE_URL):
             links.add(href)
 
     return links
@@ -150,7 +151,8 @@ def get_all_urls():
             return pickle.load(f)
 
     all_urls = extract_links()
-    filtered_urls = [url for url in all_urls if FILTER_PATH in url]
+
+    filtered_urls = [url for url in all_urls if not FILTER_PATH or FILTER_PATH in url]
 
     filtered_urls.sort(key=lambda x: (x.count("/"), x))
 
@@ -171,9 +173,7 @@ def scrape_and_structure(urls):
 
         processed_text = process_with_llm(content)
         section_title = (
-            url.replace(BASE_URL + f"/docs/{FILTER_PATH}/", "")
-            .replace("-", " ")
-            .title()
+            url.replace(BASE_URL + f"/{FILTER_PATH}/", "").replace("-", " ").title()
         )
 
         structured_text += f"\n\n{'-' * 40}\n"
