@@ -42,25 +42,25 @@ TMP_DIR = "./tmp"
 
 os.makedirs(TMP_DIR, exist_ok=True)
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--disable-dev-shm-usage")
-
-service = Service(ChromeDriverManager().install())
-driver = webdriver.Chrome(service=service, options=chrome_options)
+def create_driver():
+    """Creates and returns a new WebDriver instance."""
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    
+    service = Service(ChromeDriverManager().install())
+    return webdriver.Chrome(service=service, options=chrome_options)
 
 client = openai.OpenAI(api_key=OPENAI_API_KEY)
-
 
 def generate_cache_filename(url):
     """Generate a unique filename for caching based on the URL hash."""
     return os.path.join(TMP_DIR, hashlib.md5(url.encode()).hexdigest() + ".txt")
 
-
-def fetch_page(url):
-    """Fetches a page using Selenium, with caching and retry logic."""
+def fetch_page(url, max_retries=3):
+    """Fetches a page using Selenium, with caching, retry logic, and session handling."""
     cache_file = generate_cache_filename(url)
 
     if os.path.exists(cache_file):
@@ -68,24 +68,36 @@ def fetch_page(url):
         with open(cache_file, "r", encoding="utf-8") as f:
             return f.read()
 
-    try:
-        print(f"🌐 Fetching {url}...")
-        driver.get(url)
-        time.sleep(3)  # Allow JavaScript to fully load
+    for attempt in range(max_retries):
+        driver = None
+        try:
+            print(f"🌐 Fetching {url}... (Attempt {attempt + 1}/{max_retries})")
+            driver = create_driver()
+            driver.get(url)
+            time.sleep(3)  # Allow JavaScript to fully load
 
-        soup = BeautifulSoup(driver.page_source, "html.parser")
-        content = extract_text(
-            soup, custom_selector=args.custom_selector
-        )  # Pass argument
+            soup = BeautifulSoup(driver.page_source, "html.parser")
+            content = extract_text(soup, custom_selector=args.custom_selector)
 
-        if content:
-            with open(cache_file, "w", encoding="utf-8") as f:
-                f.write(content)
-        return content
-    except Exception as e:
-        print(f"❌ Error fetching {url}: {e}")
-        return None
+            if content:
+                with open(cache_file, "w", encoding="utf-8") as f:
+                    f.write(content)
+                return content
+            
+        except Exception as e:
+            print(f"❌ Error fetching {url} (Attempt {attempt + 1}): {e}")
+            if attempt < max_retries - 1:
+                print("Retrying with new session...")
+                time.sleep(2 * (attempt + 1))  # Exponential backoff
+        
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except:
+                    pass
 
+    return None
 
 def extract_text(soup, custom_selector=None):
     """Extracts main documentation content with optional user-defined selector."""
@@ -127,23 +139,40 @@ def extract_text(soup, custom_selector=None):
 
     return ""
 
-
-def extract_links():
-    """Finds all documentation links from the page."""
+def extract_links(max_retries=3):
+    """Finds all documentation links from the page with retry logic."""
     print("🌐 Fetching dynamic links ...")
+    
+    for attempt in range(max_retries):
+        driver = None
+        try:
+            driver = create_driver()
+            driver.get(BASE_URL)
+            time.sleep(2)
 
-    driver.get(BASE_URL)  # Scrape from the provided base URL
-    time.sleep(2)
+            links = set()
+            elements = driver.find_elements(By.TAG_NAME, "a")
+            for elem in elements:
+                href = elem.get_attribute("href")
+                if href and href.startswith(BASE_URL):
+                    links.add(href)
+                    
+            return links
 
-    links = set()
-    elements = driver.find_elements(By.TAG_NAME, "a")
-    for elem in elements:
-        href = elem.get_attribute("href")
-        if href and href.startswith(BASE_URL):
-            links.add(href)
+        except Exception as e:
+            print(f"❌ Error extracting links (Attempt {attempt + 1}): {e}")
+            if attempt < max_retries - 1:
+                print("Retrying with new session...")
+                time.sleep(2 * (attempt + 1))
 
-    return links
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except:
+                    pass
 
+    return set()
 
 def process_with_llm(text):
     """Uses OpenAI GPT-4o-mini to refine and structure the scraped documentation."""
@@ -176,7 +205,6 @@ def process_with_llm(text):
         print(f"⚠️ Error processing with LLM: {e}")
         return text
 
-
 def get_all_urls():
     """Crawls URL to gather all links before processing, using caching."""
     cache_file = os.path.join(TMP_DIR, "urls_cache.pkl")
@@ -197,7 +225,6 @@ def get_all_urls():
 
     return filtered_urls
 
-
 def scrape_and_structure(urls):
     """Scrapes and structures the documentation for better intepretation by AI Code generation tools."""
     structured_text = ""
@@ -215,7 +242,6 @@ def scrape_and_structure(urls):
         structured_text += processed_text
 
     return structured_text
-
 
 def main():
     """Main function to scrape and save the documentation."""
@@ -240,9 +266,6 @@ def main():
         print(
             "\n⚠️ No content extracted. The website might have additional protections."
         )
-
-    driver.quit()
-
 
 if __name__ == "__main__":
     main()
