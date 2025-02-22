@@ -85,13 +85,13 @@ python scraper.py --base-url https://example.com/docs --custom-selector "article
 
 This allows the scraper to precisely target the documentation content.
 
-#### Example: Using a predefined list or URL's
+### Using a predefined list or URL's
 
 If you have a list of URL's that you want to scrape instead of having the script determine the list, you can convert the text format to pickle format by using the pickly.py conversion script.
 
 ```bash
 
-python pickly.py --source urls.txt --output ./tmp/urls_cache.pkl
+python pickle.py --source urls.txt --output ./tmp/urls_cache.pkl
 ```
 
 Make sure you move the pickly file to ./tmp/urls_cache.pkl, the scraper will pick that file up and start processing the links.
